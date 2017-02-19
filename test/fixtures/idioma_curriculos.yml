@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  le: 1
+  fala: 1
+  escreve: 1
+  curriculo: one
+  idioma: one
+
+two:
+  le: 1
+  fala: 1
+  escreve: 1
+  curriculo: two
+  idioma: two

@@ -1,0 +1,27 @@
+
+<ul class="nav navbar-nav">
+   <li>
+     <%= link_to "Home", root_path, :class => 'brand' %>
+   </li>
+  <% if usuario_signed_in? %>
+    <li>
+    <%= link_to('Meus Dados', edit_usuario_registration_path) %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Registrar', new_usuario_registration_path)  %>
+    </li>
+  <% end %>
+   <li>
+    <%= link_to('Vagas', "#")  %>
+    </li>
+  <% if usuario_signed_in? %>
+    <li>
+    <%= link_to('Sair', destroy_usuario_session_path, :method=>'delete') %>        
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Entrar', new_usuario_session_path)  %>  
+    </li>
+  <% end %>
+</ul>

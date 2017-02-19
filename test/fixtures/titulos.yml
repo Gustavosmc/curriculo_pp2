@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  entidade: MyString
+  ano: 1
+  desenvolvimento: 1
+  grau: 1
+  status: 1
+  curriculo: one
+  usuario: one
+
+two:
+  descricao: MyString
+  entidade: MyString
+  ano: 1
+  desenvolvimento: 1
+  grau: 1
+  status: 1
+  curriculo: two
+  usuario: two
