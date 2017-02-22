@@ -1,0 +1,6 @@
+<%= simple_form_for(@candidato, html: { class: 'form-horizontal' }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :observacao, error: true %>
+    <%= f.button :submit %>
+
+<% end %>

@@ -1,2 +1,3 @@
 class Setor < ApplicationRecord
+    
 end

@@ -1,30 +1,99 @@
-<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  
+<div class="col-md-6 col-md-offset-3">
+    <div class="descricao ">
+          <h2 class=" label label-info col-md-offset-3">Editar dados do <%= resource_name.to_s.humanize %></h2>
+    </div>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, 
-     class: 'form-horizontal'}) do |f| %>
+     class: 'form-inputs'}) do |f| %>
     <%= f.error_notification %>
   
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-  
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-  
-      <%= f.input :password, autocomplete: "off", hint: "Deixe em branco se você não quiser alterá-lo", required: false %>
-      <%= f.input :password_confirmation, required: false %>
-      <%= f.input :current_password, hint: "Precisamos da sua palavra-passe atual para confirmar as alterações", required: true %>
+      
+      <div class="form-group">
+          <%= f.input :nome, required: true, autofocus: true, class:"form-control", input_html:
+                    {style:"max-width:500px;"} %>
+        </div>
+
+         <div class="form-inline">
+            <div class="form-group">
+                <%= f.input :cpf, required: true, class:"form-control" , input_html:
+                    {style:"max-width:200px;"} %>
+            </div>
+         </div>
+         </br>
+         <div class="form-inline">
+            <%= f.input :foto, class:"form-control"  %>
+            <div class="form-group">
+            <%= image_tag f.object.foto.url(:thumb) %>        
+            </div>
+         </div>
+         </br>
+         <div class="form-inline">
+            <div class="form-group">
+              <%= f.input :sexo, collection: Usuario.sexos.keys.to_a, required: true, class:"selectpicker"  %>
+            </div>
+            <div class="form-group">
+              <%= f.input :naturalidade, required: true , class:"form-control", input_html:
+                    {style:"max-width:260px; min-width:208px;"}%>
+            </div>
+            <div class="form-group">
+              <%= f.input :estadocivil, collection: Usuario.estadocivis.keys.to_a, required: true , class:"selectpicker", input_html:
+                    {style:"max-width:200px;"}%>
+            </div>
+          </div>
+          </br>
+          <div class="form-inline">
+          <div class="form-group">
+              <%= f.input :email, required: true, class:"form-control", input_html:
+                    {style:"min-width:276px;"} %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.input :telefone, required: true , class:"form-control", input_html:
+                    {style:"min-width:200px;"} %>
+            </div>
+        </div>
+        </br>
+        <div class="form-group">
+          <%= f.input :resumo, label: "Fale mais um pouco sobre você",  class:"form-control", input_html:
+                    {style:"max-width:500px; min-height:150px;"} %>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                <%= f.input :password,label: "Nova Senha", required: false, 
+                placeholder: ("minimo #{@minimum_password_length} caracteres" if @minimum_password_length), input_html:
+                    {style:"min-width:238px;"} %>  
+            </div> 
+            <div class="form-group">
+                <%= f.input :password_confirmation,label: "Confirmar Nova Senha", required: false , input_html:
+                    {style:"min-width:238px;"}%>
+            </div>
+           <label class="label label-info">Deixe em branco caso não queira trocar a senha</label>
+        </div>
+        </br>
+        
+        <div class="form-group">
+              <%= f.input :current_password, required: true , input_html:
+                  {style:"max-width:238px;"}%>
+        </div>  
     </div>
   
     <div class="form-actions">
-      <%= f.button :submit, "Atualizar" %>
+      <%= f.button :submit, "Atualizar", class:"btn btn-warning" %>
     </div>
   <% end %>
-  
-  <h3>Cancelar minha conta</h3>
-  
-  <p><%= link_to "Cancelar meu curriculo", "#", data: { confirm: "Tem certeza disso?" } %></p>
-  
-  <%= link_to "Voltar", :back %>
+    
+    <hr>
+    
+  <div class="form-inline">
+      <div class="form-group">
+      <%= button_to "Editar Meu Curriculo", "#", class:"btn btn-info "%>
+      </div>
+      <div class="form-group">
+      <%= button_to "Voltar", root_path, class:"btn btn-danger" %>
+      </div>
+   </div>
+   
 </div>

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212212421) do
+ActiveRecord::Schema.define(version: 20170219165940) do
+
+  create_table "candidatos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "vaga_id"
+    t.integer  "usuario_id"
+    t.boolean  "contratado"
+    t.text     "observacao", limit: 65535
+    t.integer  "status"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["usuario_id"], name: "index_candidatos_on_usuario_id", using: :btree
+    t.index ["vaga_id"], name: "index_candidatos_on_vaga_id", using: :btree
+  end
 
   create_table "contratacoes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "status"
@@ -98,6 +110,10 @@ ActiveRecord::Schema.define(version: 20170212212421) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
   end
@@ -110,9 +126,12 @@ ActiveRecord::Schema.define(version: 20170212212421) do
     t.integer  "setor_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "descricao"
     t.index ["setor_id"], name: "index_vagas_on_setor_id", using: :btree
   end
 
+  add_foreign_key "candidatos", "usuarios"
+  add_foreign_key "candidatos", "vagas"
   add_foreign_key "contratacoes", "setores"
   add_foreign_key "contratacoes", "usuarios"
   add_foreign_key "contratacoes", "vagas"

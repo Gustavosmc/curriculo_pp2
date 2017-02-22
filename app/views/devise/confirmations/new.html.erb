@@ -1,7 +1,8 @@
-<h2>Reenviar instruções de confirmação</h2>
-
+    <div class="descricao">
+          <h2 class=" label label-info col-md-offset-2">Reenviar instruções de confirmação</h2>
+    </div>
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post,
-  class: 'form-horizontal'}) do |f| %>
+  class: 'form-vertical'}) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :confirmation_token %>
 
@@ -10,8 +11,8 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
+    <%= f.button :submit, "Resend confirmation instructions", class: "btn btn-primary" %>
   </div>
 <% end %>
-
+<hr>
 <%= render "devise/shared/links" %>

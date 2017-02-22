@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 
+# Paperclip para upload de imagens
+gem "paperclip", "~> 5.0.0"
+
 # Twiter bootstrap
 gem "therubyracer"
 gem "less-rails" 
@@ -17,8 +20,6 @@ gem 'devise'
 # Simple form
 gem 'simple_form'
 
-# Paperclip para upload de arquivos
-gem "paperclip"
 
 gem 'jquery-turbolinks'
 
