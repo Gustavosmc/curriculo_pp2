@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219165940) do
+ActiveRecord::Schema.define(version: 20170222014100) do
 
   create_table "candidatos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "vaga_id"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20170219165940) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "descricao"
+    t.float    "salario",    limit: 24
     t.index ["setor_id"], name: "index_vagas_on_setor_id", using: :btree
   end
 

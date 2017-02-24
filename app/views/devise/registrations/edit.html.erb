@@ -1,7 +1,8 @@
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-6 col-md-offset-4 w3-margin-top w3-card-4 w3-hover-shadow w3-round-xlarge">
     <div class="descricao ">
-          <h2 class=" label label-info col-md-offset-3">Editar dados do <%= resource_name.to_s.humanize %></h2>
+          <h2 class=" label label-info col-md-offset-3"></h2>
     </div>
+    <%= description_w3("Editar dados do " + resource_name.to_s.humanize) %>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, 
      class: 'form-inputs'}) do |f| %>
     <%= f.error_notification %>
@@ -24,11 +25,12 @@
          </div>
          </br>
          <div class="form-inline">
-            <%= f.input :foto, class:"form-control"  %>
+            <%= f.input :foto, class:"form-control file-loading"  %>
             <div class="form-group">
-            <%= image_tag f.object.foto.url(:thumb) %>        
+            <%= image_tag f.object.foto.url(:thumb), class: "w3-card-4 w3-bord" %> 
             </div>
          </div>
+         
          </br>
          <div class="form-inline">
             <div class="form-group">
@@ -87,7 +89,7 @@
     
     <hr>
     
-  <div class="form-inline">
+  <div class="form-inline w3-margin">
       <div class="form-group">
       <%= button_to "Editar Meu Curriculo", "#", class:"btn btn-info "%>
       </div>

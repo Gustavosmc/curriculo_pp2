@@ -3,7 +3,20 @@ idioma = Idioma.create descricao: 'Português', status: 1
 
 setor = Setor.create descricao: "Mercado", status: 1
 
-vaga = Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1, setor: setor
+vaga = Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
+        setor: setor, salario: 1200.00
+      
+        Vaga.create descricao: "Vaga para gerente", requisitos: "Uma vaga para uma pessoa trabalhar
+        Uma vaga para uma pessoa trabalhar Uma vaga para uma pessoa trabalhar", especial: 1, status: 1,
+        setor: setor, salario: 1200.00
+        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
+        setor: setor, salario: 1200.00
+        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
+        setor: setor, salario: 1200.00
+        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
+        setor: setor, salario: 1200.00
+        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
+        setor: setor, salario: 1200.00
 
 curriculo = Curriculo.create observacao: "Uma observação", experiencia: 1
 

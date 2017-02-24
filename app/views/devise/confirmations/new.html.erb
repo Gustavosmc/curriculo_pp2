@@ -1,6 +1,6 @@
-    <div class="descricao">
-          <h2 class=" label label-info col-md-offset-2">Reenviar instruções de confirmação</h2>
-    </div>
+
+  <%= description_w3('Reenviar instruções de confirmação') %>
+
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post,
   class: 'form-vertical'}) do |f| %>
   <%= f.error_notification %>

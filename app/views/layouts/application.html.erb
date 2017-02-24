@@ -24,17 +24,23 @@
         </div>
       </div>
     </header>
-    <div class="container side-collapse-container">
+    <div class="conteudo container side-collapse-container">
       <div class="row">
         <%= render "layouts/messages" %>
         <%= yield %>
       </div>
     </div>
-  
+    
+    <footer class="w3-container w3-black w3-margin-top">
+      <h5>Curriculo</h5>
+      <p>Contato:</p>
+    </footer>
 
     
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true  %>
+
   </body>
-  
+    
+
 </html>
 
