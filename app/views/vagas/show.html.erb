@@ -1,20 +1,28 @@
-<div class=" w3-card-4 w3-hover-shadow w3-round-xlarge">
-    <div class="col-offset-0">
-        <p id="notice"><%= notice %></p>
-        
-        <%= description_w3(@vaga.descricao) %>
-        
-        <p><strong>Especial :</strong> <%= @vaga.especial %></p>
-        <p><strong>Setor :</strong> <%= @vaga.setor.descricao %></p>
-        <p><strong>Salário :</strong> <%= @vaga.salario %></p>
-        <p><strong>Requisitos :</strong> <%= @vaga.requisitos %></p>
-    </div>
 
-    <div class="w3-container w3-center">
-      <%= button_to 'Candidatar', "#", class: 'btn btn-success', method: :get,
-          form: {style: 'display:inline-block;'}%>
-      <%= button_to 'Voltar', :back, class: 'btn btn-danger', method: :get,
-          form: {style: 'display:inline-block;'} %>
+<div class="w3-row col-md-offset-4">
+    <div class="w3-col w3-half">
+    <div class=" w3-card-8 w3-hover-shadow  w3-round-xlarge w3-wide">
+        <div>
+         
+            <%= description_w3(@vaga.descricao) %>
+            <p><strong>Postada em :</strong> <%= @vaga.created_at.strftime('%d/%m/%y: %H:%M') %></p>
+            <p><strong>Especial :</strong> <%= @vaga.especial %></p>
+            <p><strong>Setor :</strong> <%= @vaga.setor.descricao %></p>
+            <p><strong>Salário :</strong> <%= @vaga.salario %></p>
+            <p><strong>Requisitos :</strong> <%= @vaga.requisitos %></p>
+        </div>
+        
+    
+        <div class="w3-container w3-center">
+          <%= button_to 'Candidatar', new_candidato_path, class: 'btn btn-success', method: :get, 
+                                  form: {style: 'display:inline-block;'}, params: {vaga: @vaga.id}%>
+          <%= button_to 'Voltar', vagas_path, class: 'btn btn-danger', method: :get,
+              form: {style: 'display:inline-block;'} %>
+        </div>
+    </div>
     </div>
     
 </div>
+
+
+

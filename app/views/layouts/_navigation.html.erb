@@ -1,32 +1,36 @@
-<div class="w3-center">
-  <ul class="nav navbar-nav text-uppercase ">
+<div class="w3-left">
+  <ul class="nav navbar-nav text-uppercase w3-large ">
      <li>
-       <%= link_to "Home", root_path, :class => 'brand' %>
+       <%= link_to " Home", root_path, class:"fa fa-home" %>
      </li>
      <li>
-        <%= link_to('Vagas Ofertadas', vagas_path)  %>
+        <%= link_to(' Vagas Ofertadas', vagas_path, class: "fa fa-search")  %>
      </li>
     <% if usuario_signed_in? %>
-        <li >
-          <%= link_to('Meus Dados', edit_usuario_registration_path) %>
+        <li class="w3-dropdown-hover">
+              <%= link_to(' Meus Dados', '#' , class: "fa fa-id-card-o") %>
+              <div class="w3-dropdown-content w3-border ">
+                <%= link_to(' Pessoais', edit_usuario_registration_path(current_usuario), class: "	fa fa-user") %>
+                <%= link_to(' Curriculo', "#", class: "fa fa-id-card") %>
+                
+             </div>
         </li>
-        <li >
-          <%= link_to('Meu Curriculo', "#") %>
-        </li>
+  
         <li>
-          <%= link_to('Concorrendo', "#") %>
+          <%= link_to(' Concorrendo', "#", class: "fa fa-hourglass-2") %>
+          
         </li>
         
         <li>
-          <%= link_to('Sair', destroy_usuario_session_path, :method=>'delete') %>        
+          <%= link_to(' Sair', destroy_usuario_session_path, :method=>'delete', class: "fa fa-sign-out") %>        
         </li>
     
     <% else %>
         <li>
-          <%= link_to('Entrar', new_usuario_session_path)  %> 
+          <%= link_to(' Entrar', new_usuario_session_path , class: "fa fa-sign-in")  %> 
         </li>
         <li>
-          <%= link_to('Registrar', new_usuario_registration_path)  %>
+          <%= link_to(' Registrar', new_usuario_registration_path, class: "fa fa-user-o")  %>
         </li>
     <% end %>
   </ul>

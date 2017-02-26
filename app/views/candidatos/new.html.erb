@@ -1,5 +1,8 @@
-<h1>Candidatar a vaga</h1>
-
-<%= render 'form', candidato: @candidato %>
-
-<%= link_to 'Back', candidatos_path %>
+  <div class="col-md-6 col-md-offset-4 w3-margin-top w3-card-4 w3-hover-shadow w3-round-xlarge"> 
+    
+    
+    <%= render 'form', candidato: @candidato %>
+    
+    <hr>
+    <%= link_to 'Voltar', :back , class: "btn btn-danger" %>
+ </div>

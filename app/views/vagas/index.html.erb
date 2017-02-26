@@ -4,6 +4,19 @@
   <p id="notice"><%= notice %></p>
 
   <%= description_w3('Vagas Disponiveis') %>
+  
+  <div class="w3-row w3-card w3-margin">
+      <div class="w3-col w3-green s1 w3-center w3-margin">
+          <strong><i class="fa fa-search"></i> Filtros</strong>
+      </div>
+      
+      <div class="w3-col s3 w3-margin-left">
+          <strong>Descrição</strong>
+        
+      </div>
+      
+     
+  </div>
         
   <% unless @vagas.empty? %>
   <table class='w3-table w3-striped w3-hoverable w3-centered'>
@@ -25,25 +38,21 @@
           <td><%= vaga.especial %></td>
           <td><%= vaga.setor.descricao %></td>
           <td><%= vaga.salario %></td>
-          <td ><%= button_to 'Detalhes', vaga, class: 'btn btn-info btn-xs', method: :get, 
+          <td ><%= button_to 'Mais Detalhes', vaga, class: 'btn btn-info btn-xs', method: :get, 
                               form: {style: 'display:inline-block;'}%>
-               <%= button_to 'Candidatar', vaga, class: 'btn btn-success btn-xs', method: :get,
-                             form: {style: 'display:inline-block;'}%></td>
+               <%= button_to 'Candidatar', new_candidato_path, class: 'btn btn-success btn-xs', method: :get, 
+                              form: {style: 'display:inline-block;'}, params: {vaga: vaga.id}%>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <div class="w3-bar w3-border">
-  <a href="#" class="w3-button w3-hover-purple">&laquo;</a>
-  <a href="#" class="w3-button w3-hover-green">1</a>
-  <a href="#" class="w3-button w3-hover-red">2</a>
-  <a href="#" class="w3-button w3-hover-blue">3</a>
-  <a href="#" class="w3-button w3-hover-black">4</a>
-  <a href="#" class="w3-button w3-hover-orange">&raquo;</a>
+  <div class="w3-bar w3-card fa-2x w3-center">
+    <%= will_paginate @vagas %>
 </div>
   <% else %>
       <div class="alert alert-info" role="alert">
-          <strong>Não há vagas no momento</strong>:
+          <strong>Nem uma vaga disponivel no momento</strong>:
       </div>
   <% end %>
 

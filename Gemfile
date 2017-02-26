@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Will_paginate para filtros e paginação
+gem 'will_paginate', '~> 3.1.0'
 
 # Paperclip para upload de imagens
 gem "paperclip", "~> 5.0.0"

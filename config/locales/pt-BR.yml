@@ -6,6 +6,8 @@ pt-BR:
         email: Email
         password: Senha
         nome: Nome Completo
+        estadocivil: Estado Civil
+        cpf: CPF
         password_confirmation: Confirme sua senha
         remember_me: Lembre-se de mim
         reset_password_token: Resetar token de senha

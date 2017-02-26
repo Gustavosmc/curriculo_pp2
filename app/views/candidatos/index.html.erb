@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Vagas que me candidatei</h1>
 
@@ -6,9 +5,7 @@
   <thead>
     <tr>
       <th>Contratado</th>
-      <th>Observacao</th>
       <th>Vaga</th>
-      <th>Usuario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +14,7 @@
     <% @candidatos.each do |candidato| %>
       <tr>
         <td><%= candidato.contratado %></td>
-        <td><%= candidato.observacao %></td>
-        <td><%= candidato.vaga %></td>
-        <td><%= candidato.usuario %></td>
+        <td><%= candidato.vaga.descricao %></td>
         <td><%= link_to 'Detalhes da Vaga', candidato %></td>
         <td><%= link_to 'Cancelar', candidato, method: :delete, data: { confirm: 'Deseja realmente
         desistir desta vaga?' } %></td>
