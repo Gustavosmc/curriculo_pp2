@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'pg'
 
 # Gem para seleção de paises
 gem 'country_state_select', :git => 'https://github.com/arvindvyas/Country-State-Select.git'
