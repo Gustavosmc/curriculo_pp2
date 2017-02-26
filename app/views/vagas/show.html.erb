@@ -6,6 +6,7 @@
          
             <%= description_w3(@vaga.descricao) %>
             <p><strong>Postada em :</strong> <%= @vaga.created_at.strftime('%d/%m/%y: %H:%M') %></p>
+            <p><strong>Status :</strong> <%= @vaga.status %></p>
             <p><strong>Especial :</strong> <%= @vaga.especial %></p>
             <p><strong>Setor :</strong> <%= @vaga.setor.descricao %></p>
             <p><strong>Salário :</strong> <%= @vaga.salario %></p>

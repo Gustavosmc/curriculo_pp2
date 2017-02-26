@@ -5,6 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+# Gem para seleção de paises
+gem 'country_state_select', :git => 'https://github.com/arvindvyas/Country-State-Select.git'
+
+# Mascaras de campos html
+gem 'jquery-inputmask-rails'
+
+
 # Will_paginate para filtros e paginação
 gem 'will_paginate', '~> 3.1.0'
 
