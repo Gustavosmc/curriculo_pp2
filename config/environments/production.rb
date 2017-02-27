@@ -1,17 +1,7 @@
 Rails.application.configure do
  
   
-  config.action_mailer.default_url_options = { host: 'https://limitless-temple-43644.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
   
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               env["GMAIL_DOMAIN"],
-    user_name:            env["GMAIL_USERNAME"],
-    password:             env["GMAIL_PASSWORD"],
-    authentication:       'plain',
-    enable_starttls_auto: true  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
