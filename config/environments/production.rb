@@ -1,7 +1,6 @@
 Rails.application.configure do
  
-  config.action_mailer.raise_delivery_errors = true
-  # Configurado para enviar email do Cloud9
+  
   config.action_mailer.default_url_options = { host: 'https://limitless-temple-43644.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   
