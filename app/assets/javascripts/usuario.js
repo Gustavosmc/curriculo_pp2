@@ -1,8 +1,9 @@
-require('jquery.maskedinput.js')
+$(document).ready(function(){
+   $('#usuario_cpf').inputmask('999.999.999-99');
+   $('#usuario_telefone').inputmask('(99) [9]-9999-9999');
+});
 
-jQuery(function($){
-//   $("#date").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
-   $("#telefone").mask("(999) 999-9999");
-//   $("#tin").mask("99-9999999");
-//   $("#ssn").mask("999-99-9999");
+$("#edit_usuario").submit(function() {
+  $("#usuario_cpf").unmask('999.999.999-99');
+  $('#usuario_telefone').unmask('(99) [9]-9999-9999');
 });

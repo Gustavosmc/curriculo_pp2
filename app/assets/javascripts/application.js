@@ -19,6 +19,7 @@
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
 //= require_tree .
+//= require_self
 
 
 
@@ -32,7 +33,4 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function(){
-   $('#usuario_cpf').inputmask('999.999.999-99');
-   $('#usuario_telefone').inputmask('(99) 9-9999-9999');
-});
+
