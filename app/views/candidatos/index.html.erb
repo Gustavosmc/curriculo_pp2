@@ -1,28 +1,31 @@
-
-<h1>Vagas que me candidatei</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Contratado</th>
-      <th>Vaga</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @candidatos.each do |candidato| %>
+<div class="w3-card w3-margin-top">
+  <%= description_w3('Vagas que estou concorrendo') %>
+  <table class='w3-table w3-striped w3-hoverable w3-centered'>
+    <thead>
       <tr>
-        <td><%= candidato.contratado %></td>
-        <td><%= candidato.vaga.descricao %></td>
-        <td><%= link_to 'Detalhes da Vaga', candidato %></td>
-        <td><%= link_to 'Cancelar', candidato, method: :delete, data: { confirm: 'Deseja realmente
-        desistir desta vaga?' } %></td>
+        <th>Descrição da Vaga</th>
+        <th>Status</th>
+        <th>Ações</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Candidatar a outras vagas', vagas_path %>
+    </thead>
+  
+    <tbody>
+      <% @candidatos.each do |candidato| %>
+        <tr>
+          <td><%= candidato.vaga.descricao %></td>
+          <td><%= candidato.vaga.status %></td>
+          <td><%= button_to 'Mais Detalhes', candidato, class: 'btn btn-info btn-xs', method: :get, 
+                              form: {style: 'display:inline-block;'}%>
+               <%= button_to 'Cancelar', candidato, class: 'btn btn-danger btn-xs', method: :delete, 
+                              form: {style: 'display:inline-block;'},  data: { confirm: 'Deseja realmente
+                              desistir desta vaga?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'Candidatar a outras vagas', vagas_path %>
+</div>

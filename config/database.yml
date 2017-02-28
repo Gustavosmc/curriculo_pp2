@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: curriculo_production
-  username: curriculo
-  password: <%= ENV['CURRICULO_DATABASE_PASSWORD'] %>
+  # username: curriculo
+  # password: <%= ENV['CURRICULO_DATABASE_PASSWORD'] %>

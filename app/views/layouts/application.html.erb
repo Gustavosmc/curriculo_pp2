@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= csrf_meta_tags %>
+    <%= yield(:head) %> 
+     
     
   </head>
   <body>
@@ -32,13 +34,25 @@
     </div>
     
     <footer class="w3-container w3-black w3-margin-top">
-      <h5>Curriculo</h5>
-      <p>Contato:</p>
+        <h4>CAPUL - Cooperativa Agropecuária Unaí Ltda</h4>
+        <h5>Rua Prefeito João Costa, nº 1375</h5>
+        <h5>Bairro Planalto - Unaí - MG</h5>
+        <h5>CEP: 38610-000</h5>
     </footer>
 
     
     
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true  %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'jquery', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'turbolinks', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'jquery.inputmask', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'jquery.inputmask.extensions', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'jquery.inputmask.numeric.extensions', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'jquery.inputmask.date.extensions', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track' => 'reload'  %>
+    <%= javascript_include_tag 'usuario', 'data-turbolinks-track' => 'reload'  %>
+    
 
   </body>
     

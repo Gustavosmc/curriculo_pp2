@@ -10,7 +10,7 @@ class Vaga < ApplicationRecord
   enum status: {CANCELADA: 0, ABERTA: 1, FECHADA: 2}
   
   # Paginação
-  self.per_page = 10
+  self.per_page = 7
   
   
 end
