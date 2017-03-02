@@ -17,7 +17,7 @@
         <div class="w3-container w3-center">
           <%= button_to 'Candidatar', new_candidato_path, class: 'btn btn-success', method: :get, 
                                   form: {style: 'display:inline-block;'}, params: {vaga: @vaga.id}%>
-          <%= button_to 'Voltar', vagas_path, class: 'btn btn-danger', method: :get,
+          <%= link_to 'Voltar', :back, class: 'btn btn-danger',
               form: {style: 'display:inline-block;'} %>
         </div>
     </div>

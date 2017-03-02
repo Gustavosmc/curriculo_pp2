@@ -1,31 +1,44 @@
 <div class="w3-card w3-margin-top">
   <%= description_w3('Vagas que estou concorrendo') %>
-  <table class='w3-table w3-striped w3-hoverable w3-centered'>
-    <thead>
-      <tr>
-        <th>Descrição da Vaga</th>
-        <th>Status</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <% @candidatos.each do |candidato| %>
+  <% @candidatos.empty? %>
+  <% unless @candidatos.empty? %>
+    <table class='w3-table w3-striped w3-hoverable w3-centered'>
+      <thead>
         <tr>
-          <td><%= candidato.vaga.descricao %></td>
-          <td><%= candidato.vaga.status %></td>
-          <td><%= button_to 'Mais Detalhes', candidato, class: 'btn btn-info btn-xs', method: :get, 
-                              form: {style: 'display:inline-block;'}%>
-               <%= button_to 'Cancelar', candidato, class: 'btn btn-danger btn-xs', method: :delete, 
-                              form: {style: 'display:inline-block;'},  data: { confirm: 'Deseja realmente
-                              desistir desta vaga?' } %>
-          </td>
+          <th>Descrição da Vaga</th>
+          <th>Setor</th>
+          <th>Status</th>
+          <th>Ações</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-  <br>
-  
-  <%= link_to 'Candidatar a outras vagas', vagas_path %>
+      </thead>
+    
+      <tbody>
+        <% @candidatos.each do |candidato| %>
+          <tr>
+            <td><%= candidato.vaga.descricao %></td>
+            <td><%= candidato.vaga.setor.descricao %></td>
+            <td><%= candidato.vaga.status %></td>
+            <td><%= button_to 'Mais Detalhes', candidato.vaga, class: 'btn btn-info btn-xs', method: :get, 
+                                form: {style: 'display:inline-block;'}%>
+                 <%= button_to 'Cancelar', candidato, class: 'btn btn-danger btn-xs', method: :delete, 
+                                form: {style: 'display:inline-block;'},  data: { confirm: 'Deseja realmente
+                                desistir desta vaga?' } %>
+                <%= button_to 'Editar', edit_candidato_path(candidato), class: 'btn btn-warning btn-xs', method: :get, 
+                                form: {style: 'display:inline-block;'} %>                
+                
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+       <div class="alert alert-info" role="alert">
+          <strong>Você ainda não candidatou a nenhuma vaga! Clique no link abaixo pra ver as vagas disponiveis</strong>:
+      </div>
+  <% end %>
+  <hr>
+ 
+  <div class="w3-margin">
+    <%= link_to 'Mais vagas disponiveis', vagas_path %>
+  </div>
 </div>

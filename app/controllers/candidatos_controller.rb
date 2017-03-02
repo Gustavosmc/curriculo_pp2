@@ -1,11 +1,11 @@
 class CandidatosController < ApplicationController
-  before_action :set_candidato, only: [:show, :edit, :update, :destroy]
+    before_action :set_candidato, only: [:show, :edit, :update, :destroy]
     before_filter :authenticate_usuario!
 
   # GET /candidatos
   # GET /candidatos.json
   def index
-    @candidatos = Candidato.where(usuario_id: current_usuario.id)
+    @candidatos = Candidato.where(usuario_id: current_usuario.id).where(status: 1)
   end
 
   # GET /candidatos/1
@@ -16,16 +16,24 @@ class CandidatosController < ApplicationController
   def new
     @candidato = Candidato.new
     @vaga = Vaga.find_by_id(params[:vaga])
-    if Candidato.where(vaga_id: @vaga.id).where(usuario_id: current_usuario.id).count > 0
-      redirect_to candidatos_url, notice: 'Você ja está cadastrado nesta vaga' 
+    loc_candidato = Candidato.where(vaga_id: @vaga.id).where(usuario_id: current_usuario.id).first
+    if loc_candidato
+      if loc_candidato.status == "AGUARDANDO"
+        redirect_to candidatos_url, notice: 'Você já está cadastrado nesta vaga'
+      else
+        loc_candidato.update(status: 1)
+        redirect_to candidatos_url, notice: 'Você recandidatou a esta vaga, sua descrição dessa vaga continua a mesma'
+      end
     end
   end
+  
 
   # POST /candidatos
   # POST /candidatos.json
   def create
     @candidato = Candidato.new(candidato_params)
     @candidato.usuario_id = current_usuario.id
+    @candidato.status = 1
      respond_to do |format|
       if @candidato.save
         format.html { redirect_to candidatos_url, notice: 'Registro na vaga realizado com sucesso' }
@@ -38,13 +46,31 @@ class CandidatosController < ApplicationController
   
   end
 
+  def edit
+    @vaga = @candidato.vaga
+  end
 
+  # PATCH/PUT /curriculos/1
+  # PATCH/PUT /curriculos/1.json
+  def update
+    respond_to do |format|
+      if @candidato.update(candidato_params)
+        format.html { redirect_to candidatos_url, notice: 'Candidato atualizado com sucesso.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
 
   # DELETE /candidatos/1
   # DELETE /candidatos/1.json
   def destroy
     @candidato.status = 0
-    @candidato.save
+     respond_to do |format|
+      if @candidato.save
+        format.html { redirect_to candidatos_url, notice: 'Registro cancelado com sucesso' }
+      end
+     end
   end
 
   private
