@@ -40,7 +40,7 @@
                        <%= f.input :sexo, collection: Usuario.sexos.keys.to_a, required: true, class:"selectpicker"  %>
                   </div>
                   <div class="w3-col s4 w3-margin-right  w3-mobile">
-                       <%= f.input :naturalidade, required: true, collection: CountryStateSelect.countries_collection %>
+                       <%= f.input :naturalidade, required: true, collection: CountryStateSelect.countries_collection, class:"selectpicker" %>
                   </div>
                   <div class="w3-col s3 w3-margin-right  w3-mobile">
                        <%= f.input :estadocivil, collection: Usuario.estadocivis.keys.to_a, required: true , class:"selectpicker" %>

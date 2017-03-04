@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+# Cocoon para formulários has_many
+gem "cocoon"
 
 # Gem para seleção de paises
 gem 'country_state_select', :git => 'https://github.com/arvindvyas/Country-State-Select.git'
@@ -74,6 +75,10 @@ group :development, :test do
 end
 
 group :development do
+    
+  # Gem para gerar diagrama er
+  gem "rails-erd" 
+  
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'

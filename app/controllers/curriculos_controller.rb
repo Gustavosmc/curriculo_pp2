@@ -1,13 +1,7 @@
 class CurriculosController < ApplicationController
   before_filter :authenticate_usuario!
   before_action :set_curriculo, only: [:show, :edit, :update, :destroy]
- 
-
-  # GET /curriculos
-  # GET /curriculos.json
-  def index
-    @curriculos = Curriculo.all
-  end
+  
 
   # GET /curriculos/1
   # GET /curriculos/1.json
@@ -20,11 +14,11 @@ class CurriculosController < ApplicationController
     if current_usuario.curriculo
       redirect_to edit_curriculo_path(current_usuario.curriculo)
     end
-  
   end
 
   # GET /curriculos/1/edit
   def edit
+    
   end
 
   # POST /curriculos
@@ -76,6 +70,9 @@ class CurriculosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def curriculo_params
-      params.require(:curriculo).permit(:observacao, :experiencia)
+      params.require(:curriculo).permit(:observacao,
+      cargos_attributes: [:id, :descricao, :desenvolvimento, :detalhes, :fim, :incio, :ultimo_sal, :_destroy],
+      titulos_attributes: [:id, :ano, :descricao, :desenvolvimento, :entidade, :grau, :status, :_destroy],
+      idioma_curriculo_attributes: [:id, :id_idioma, :escreve, :fala, :le, :_destroy])
     end
 end

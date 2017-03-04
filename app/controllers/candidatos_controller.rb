@@ -22,7 +22,8 @@ class CandidatosController < ApplicationController
         redirect_to candidatos_url, notice: 'Você já está cadastrado nesta vaga'
       else
         loc_candidato.update(status: 1)
-        redirect_to candidatos_url, notice: 'Você recandidatou a esta vaga, sua descrição dessa vaga continua a mesma'
+        redirect_to candidatos_url, notice: 'Você recandidatou a esta vaga, sua objeção desta vaga continua a mesma,
+              clique em editar para altera-la'
       end
     end
   end

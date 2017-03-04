@@ -1,6 +1,7 @@
 class Usuario < ApplicationRecord
   has_one :curriculo
-  has_many :vagas
+  
+  has_many :candidatos
   has_many :vagas, through: :candidatos
   
   # Paperclip, upload arquivos

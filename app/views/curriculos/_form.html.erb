@@ -1,8 +1,82 @@
-<%= simple_form_for(@curriculo, html: { class: 'form-horizontal' }) do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :observacao, error: true %>
-    <%= f.input :experiencia, error: true %>
+<div>
+    <%= simple_form_for(@curriculo) do |f_curriculo| %>
+        <%= f_curriculo.error_notification %>
+        
+        <div class="w3-row w3-margin w3-card-8">
+          
+             <div class="curriculo-cabecalho w3-center w3-blue">
+                  Experiência Profissinal
+             </div>
     
-    <%= f.button :submit %>
+             <div id="cargos w3-row">
+               <%= f_curriculo.simple_fields_for :cargos do |fc| %>
+                  <%= render 'cargo_fields', f: fc %>
+                  
+               <% end %>
+                <div class='links'>
+                    <%= link_to_add_association '+', f_curriculo, :cargos, class:"w3-badge w3-green w3-margin"%>
+                </div>
+             </div>
+            
+        </div>
+        
+        
+      <div class="w3-row w3-margin w3-card-8">
+      
+         <div class="curriculo-cabecalho w3-center w3-blue">
+              Cargos de meu enteresse
+         </div>
 
-<% end %>
+         <div id="cargos w3-row">
+           <%= f_curriculo.simple_fields_for :cargos do |fc| %>
+              <%= render 'cargo_fields', f: fc %>
+              
+           <% end %>
+            <div class='links'>
+                <%= link_to_add_association '+', f_curriculo, :cargos, class:"w3-badge w3-green w3-margin"%>
+            </div>
+         </div>
+        
+      </div>
+      
+        <div class="w3-row w3-margin w3-card-8">
+      
+         <div class="curriculo-cabecalho w3-center w3-blue">
+              Meus Títulos (Cursos Técnicos, Faculdades, e outros)
+         </div>
+
+         <div id="cargos w3-row">
+           <%= f_curriculo.simple_fields_for :cargos do |fc| %>
+              <%= render 'cargo_fields', f: fc %>
+              
+           <% end %>
+            <div class='links'>
+                <%= link_to_add_association '+', f_curriculo, :cargos, class:"w3-badge w3-green w3-margin"%>
+            </div>
+         </div>
+        
+      </div>
+        
+        
+        <div class="w3-row w3-margin w3-card-8">
+          
+             <div class="curriculo-cabecalho w3-center w3-blue">
+                  Deixe aqui outras observações que queira fazer sobre seu curriculo
+             </div>
+             
+             <div class="w3-row">
+                 <div class="w3-col s12 w3-mobile">
+                    <%= f_curriculo.input :observacao, label: false,  error: true, input_html: {style: "min-height: 150px;"} %>
+                </div>
+             </div>
+            
+        </div>
+         
+          
+        
+      
+       <div class="w3-row w3-margin">
+        <%= f_curriculo.button :submit, class:"btn btn-warning" %>
+       </div>
+    <% end %>
+</div>

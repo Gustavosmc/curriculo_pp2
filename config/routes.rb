@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root to: 'home#index'
   
-  resources :curriculos, except: [:index]
+  resources :curriculos, except: [:index, :destroy]
   resources :vagas, only: [:index, :show]
   resources :candidatos, except: [:show]
   

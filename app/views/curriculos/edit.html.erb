@@ -1,6 +1,7 @@
-<h1>Editing Curriculo</h1>
-
-<%= render 'form', curriculo: @curriculo %>
-
-<%= link_to 'Show', @curriculo %> |
-<%= link_to 'Back', curriculos_path %>
+<div class="col-md-12 w3-margin-top w3-card-4 w3-hover-shadow w3-round-xlarge">   
+    <%= description_w3("Atualizar dados do Curriculo") %>
+    
+    <%= render 'form', curriculo: @curriculo %>
+     
+    <%= link_to 'Voltar', :back, class:"btn btn-danger w3-margin" %>
+</div>

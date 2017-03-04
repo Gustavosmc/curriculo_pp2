@@ -2,7 +2,8 @@ class Vaga < ApplicationRecord
   
   # ActiveRecord relacionamentos
   belongs_to :setor
-  has_many :usuarios
+  
+  has_many :candidatos
   has_many :usuarios, through: :candidatos
   
   # Enums

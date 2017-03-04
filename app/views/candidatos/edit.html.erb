@@ -1,8 +1,9 @@
   <div class="col-md-6 col-md-offset-4 w3-margin-top w3-card-4 w3-hover-shadow w3-round-xlarge"> 
-    
+    <%= description_w3("Editar dados de: "+@vaga.descricao) %>
+
     
     <%= render 'form', candidato: @candidato %>
     
     <hr>
-    <%= link_to 'Cancelar', :back , class: "btn btn-danger" %>
+    <%= link_to 'Cancelar/Voltar', :back , class: "btn btn-danger" %>
  </div>

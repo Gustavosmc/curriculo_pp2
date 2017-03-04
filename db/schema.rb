@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226151913) do
+ActiveRecord::Schema.define(version: 20170304221827) do
 
   create_table "candidatos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "vaga_id"
@@ -22,6 +22,32 @@ ActiveRecord::Schema.define(version: 20170226151913) do
     t.datetime "updated_at",               null: false
     t.index ["usuario_id"], name: "index_candidatos_on_usuario_id", using: :btree
     t.index ["vaga_id"], name: "index_candidatos_on_vaga_id", using: :btree
+  end
+
+  create_table "cargo_pretendidos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "descricao"
+    t.integer  "anos_exp"
+    t.integer  "meses_exp"
+    t.integer  "dias_exp"
+    t.float    "pretensao_sal", limit: 24
+    t.integer  "curriculo_id"
+    t.text     "observacao",    limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["curriculo_id"], name: "index_cargo_pretendidos_on_curriculo_id", using: :btree
+  end
+
+  create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "descricao"
+    t.date     "inicio"
+    t.integer  "desenvolvimento"
+    t.date     "fim"
+    t.float    "ultimo_sal",      limit: 24
+    t.text     "detalhes",        limit: 65535
+    t.integer  "curriculo_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["curriculo_id"], name: "index_cargos_on_curriculo_id", using: :btree
   end
 
   create_table "contratacoes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -37,11 +63,11 @@ ActiveRecord::Schema.define(version: 20170226151913) do
   end
 
   create_table "curriculos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "observacao",  limit: 65535
-    t.integer  "experiencia"
+    t.text     "observacao",    limit: 65535
     t.integer  "usuario_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "endereco_comp"
     t.index ["usuario_id"], name: "index_curriculos_on_usuario_id", using: :btree
   end
 
@@ -120,7 +146,6 @@ ActiveRecord::Schema.define(version: 20170226151913) do
   end
 
   create_table "vagas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "datahorac"
     t.text     "requisitos", limit: 65535
     t.integer  "especial"
     t.integer  "status"
@@ -134,6 +159,8 @@ ActiveRecord::Schema.define(version: 20170226151913) do
 
   add_foreign_key "candidatos", "usuarios"
   add_foreign_key "candidatos", "vagas"
+  add_foreign_key "cargo_pretendidos", "curriculos"
+  add_foreign_key "cargos", "curriculos"
   add_foreign_key "contratacoes", "setores"
   add_foreign_key "contratacoes", "usuarios"
   add_foreign_key "contratacoes", "vagas"

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  anos_exp: 1
+  meses_exp: 1
+  dias_exp: 1
+  pretensao_sal: 1.5
+  curriculo: one
+  observacao: MyText
+
+two:
+  descricao: MyString
+  anos_exp: 1
+  meses_exp: 1
+  dias_exp: 1
+  pretensao_sal: 1.5
+  curriculo: two
+  observacao: MyText

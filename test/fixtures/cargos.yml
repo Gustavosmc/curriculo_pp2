@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  experiencia: 1
+  pretendido: false
+  incio: 2017-03-02
+  desenvolvimento: 1
+  fim: 2017-03-02
+  ultimo_sal: 1.5
+  pretencao_sal: 1.5
+  detalhes: MyText
+  curriculo: one
+
+two:
+  descricao: MyString
+  experiencia: 1
+  pretendido: false
+  incio: 2017-03-02
+  desenvolvimento: 1
+  fim: 2017-03-02
+  ultimo_sal: 1.5
+  pretencao_sal: 1.5
+  detalhes: MyText
+  curriculo: two

@@ -1,4 +1,4 @@
-<div class="w3-card w3-margin-top">
+<div class="w3-card-8 w3-margin-top w3-round-xlarge">
   <%= description_w3('Vagas que estou concorrendo') %>
   <% @candidatos.empty? %>
   <% unless @candidatos.empty? %>
@@ -21,8 +21,7 @@
             <td><%= button_to 'Mais Detalhes', candidato.vaga, class: 'btn btn-info btn-xs', method: :get, 
                                 form: {style: 'display:inline-block;'}%>
                  <%= button_to 'Cancelar', candidato, class: 'btn btn-danger btn-xs', method: :delete, 
-                                form: {style: 'display:inline-block;'},  data: { confirm: 'Deseja realmente
-                                desistir desta vaga?' } %>
+                                form: {style: 'display:inline-block;'},  data: { confirm: 'Deseja realmente desistir desta vaga?' } %>
                 <%= button_to 'Editar', edit_candidato_path(candidato), class: 'btn btn-warning btn-xs', method: :get, 
                                 form: {style: 'display:inline-block;'} %>                
                 
