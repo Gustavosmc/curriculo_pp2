@@ -27,31 +27,50 @@
               Cargos de meu enteresse
          </div>
 
-         <div id="cargos w3-row">
-           <%= f_curriculo.simple_fields_for :cargos do |fc| %>
-              <%= render 'cargo_fields', f: fc %>
+         <div id="cargo_pretendidos w3-row">
+           <%= f_curriculo.simple_fields_for :cargo_pretendidos do |fcp| %>
+              <%= render 'cargo_pretendido_fields', f: fcp %>
               
            <% end %>
             <div class='links'>
-                <%= link_to_add_association '+', f_curriculo, :cargos, class:"w3-badge w3-green w3-margin"%>
+                <%= link_to_add_association '+', f_curriculo, :cargo_pretendidos, class:"w3-badge w3-green w3-margin"%>
             </div>
          </div>
         
       </div>
       
-        <div class="w3-row w3-margin w3-card-8">
+      <div class="w3-row w3-margin w3-card-8">
       
          <div class="curriculo-cabecalho w3-center w3-blue">
-              Meus Títulos (Cursos Técnicos, Faculdades, e outros)
+              Meus Títulos (Cursos Técnicos, Faculdades, outros)
          </div>
 
-         <div id="cargos w3-row">
-           <%= f_curriculo.simple_fields_for :cargos do |fc| %>
-              <%= render 'cargo_fields', f: fc %>
+         <div id="titulos w3-row">
+           <%= f_curriculo.simple_fields_for :titulos do |ft| %>
+              <%= render 'titulo_fields', f: ft %>
               
            <% end %>
             <div class='links'>
-                <%= link_to_add_association '+', f_curriculo, :cargos, class:"w3-badge w3-green w3-margin"%>
+                <%= link_to_add_association '+', f_curriculo, :titulos, class:"w3-badge w3-green w3-margin"%>
+            </div>
+         </div>
+        
+      </div>
+      
+      
+      <div class="w3-row w3-margin w3-card-8">
+      
+         <div class="curriculo-cabecalho w3-center w3-blue">
+              Meus Idiomas
+         </div>
+
+         <div id="idioma_curriculos w3-row">
+           <%= f_curriculo.simple_fields_for :idioma_curriculos do |fi| %>
+              <%= render 'idioma_curriculo_fields', f: fi %>
+              
+           <% end %>
+            <div class='links'>
+                <%= link_to_add_association '+', f_curriculo, :idioma_curriculos, class:"w3-badge w3-green w3-margin"%>
             </div>
          </div>
         
@@ -61,7 +80,7 @@
         <div class="w3-row w3-margin w3-card-8">
           
              <div class="curriculo-cabecalho w3-center w3-blue">
-                  Deixe aqui outras observações que queira fazer sobre seu curriculo
+                  Deixe aqui outras observações que queira fazer sobre seu curriculo, sua situação atual entre outros
              </div>
              
              <div class="w3-row">

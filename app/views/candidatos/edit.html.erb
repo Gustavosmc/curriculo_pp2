@@ -1,5 +1,5 @@
-  <div class="col-md-6 col-md-offset-4 w3-margin-top w3-card-4 w3-hover-shadow w3-round-xlarge"> 
-    <%= description_w3("Editar dados de: "+@vaga.descricao) %>
+  <div class="col-md-6 col-md-offset-3 w3-margin-top w3-card-4 w3-hover-shadow w3-round-xlarge"> 
+    <%= description_w3("Editar dados de: " << @vaga.descricao) %>
 
     
     <%= render 'form', candidato: @candidato %>

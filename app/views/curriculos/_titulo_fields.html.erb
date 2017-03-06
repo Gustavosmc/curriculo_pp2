@@ -3,16 +3,19 @@
        
        <%=  f.input :descricao  %>
        
-       <%=  f.input :inicio  %>
+       <%=  f.input :entidade  %>
+    
+       <%=  f.input :modalidade, collection: Titulo.modalidades.keys.to_a, class:"selectpicker"  %>
+      
+       <%=  f.input :grau, collection: Titulo.graus.keys.to_a, class:"selectpicker" %>
        
-       <%=  f.input :desenvolvimento, collection: Cargo.desenvolvimentos.keys.to_a,
-                                       class:"selectpicker", id:'curriculo_cargos'%>
-       <%=  f.input :fim  %>
+       <%=  f.input :ano  %>
        
-       <%=  f.input :ultimo_sal  %>
+       <%=  f.input :duracao  %>
        
+       <%=  f.input :desenvolvimento, collection: Titulo.desenvolvimentos.keys.to_a, class:"selectpicker"%>
        
-       <%=  f.input :detalhes  %>
+       <%=  f.input :observacao  %>
        
        <%= link_to_remove_association "Remover", f, class:"w3-button w3-red" %>
    </div>

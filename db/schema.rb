@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304221827) do
+ActiveRecord::Schema.define(version: 20170305214841) do
 
   create_table "candidatos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "vaga_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170304221827) do
     t.integer  "curriculo_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "entidade"
     t.index ["curriculo_id"], name: "index_cargos_on_curriculo_id", using: :btree
   end
 
@@ -107,8 +108,11 @@ ActiveRecord::Schema.define(version: 20170304221827) do
     t.integer  "status"
     t.integer  "curriculo_id"
     t.integer  "usuario_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "modalidade"
+    t.text     "observacao",      limit: 65535
+    t.integer  "duracao"
     t.index ["curriculo_id"], name: "index_titulos_on_curriculo_id", using: :btree
     t.index ["usuario_id"], name: "index_titulos_on_usuario_id", using: :btree
   end
@@ -141,6 +145,7 @@ ActiveRecord::Schema.define(version: 20170304221827) do
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
     t.date     "nascimento"
+    t.string   "endereco"
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
   end

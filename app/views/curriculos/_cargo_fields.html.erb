@@ -3,9 +3,11 @@
        
        <%=  f.input :descricao  %>
        
+       <%= f.input :entidade %>
+       
        <%=  f.input :inicio  %>
        
-       <%=  f.input :desenvolvimento, collection: Cargo.desenvolvimentos.keys.to_a,
+       <%=  f.input :desenvolvimento, collection: Cargo.desenvolvimentos.keys.to_a, default: 'NÂO',
                                        class:"selectpicker", id:'curriculo_cargos'%>
        <%=  f.input :fim  %>
        

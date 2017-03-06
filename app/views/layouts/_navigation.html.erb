@@ -14,7 +14,7 @@
               <%= link_to(' Meus Dados', '#' , class: "fa fa-id-card-o") %>
               <div class="w3-dropdown-content w3-border ">
                 <%= link_to(' Pessoais', edit_usuario_registration_path(current_usuario), class: "	fa fa-user") %>
-                <%= link_to(' Curriculo', new_curriculo_path, class: "fa fa-id-card") %>
+                <%= link_to(' Curriculo', curriculo_path(current_usuario.curriculo), class: "fa fa-id-card") %>
              </div>
         </li>
   

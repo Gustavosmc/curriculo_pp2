@@ -1,120 +1,131 @@
 <div class="col-md-6 col-md-offset-3 w3-margin-top w3-card-4 w3-hover-shadow w3-round-xlarge ">
     
-    <%= description_w3("Editar dados do " + resource_name.to_s.humanize) %>
-  <div class="w3-margin">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
-              html: {novalidate: true}) do |f| %>
-    <%= f.error_notification %>
-  
-    <div class="form-inputs">
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <%= description_w3("Editar dados do " + resource_name.to_s.humanize) %>
+      <div class="w3-margin">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
+                  html: {novalidate: true}) do |f| %>
+        <%= f.error_notification %>
+      
+        <div class="form-inputs">
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+          
+           <div class="w3-row">
+                 <div class="w3-col s7   w3-mobile">
+                    <%= f.input :foto %>
+                </div>
+                <div class="w3-col s3  w3-right  w3-mobile">
+                    <% if not f.object.foto.url(:thumb).eql? "/images/thumb/missing.png"%>
+                        <%= image_tag(f.object.foto.url(:thumb), class:"w3-round-xlarge") %>
+                    <%else%>
+                        <%= image_tag('user', height: '128', width: '128') %> 
+                    <%end%>
+                </div>
+            </div>
+            
+            </br>
+          
+            <div class="w3-row">
+                <div class="w3-col s12  w3-margin-right w3-mobile">
+                    <%= f.input :nome, required: true, autofocus: true %>                  
+                </div>
+            </div>
+    
+            </br>
+                
+             <div class="w3-row">
+                <div class="w3-col s4  w3-margin-right w3-mobile">
+                    <%= f.input :cpf, required: true, input_html: {type:"tel"} %>
+                </div>
+                <div class="w3-col s7  w3-margin-right w3-mobile">
+                     <%= f.input :nascimento, as: :date, start_year: Date.today.year - 100,
+                                  end_year: Date.today.year - 15 %>
+                </div>
+             </div>
+                
+             </br>
+             
+             <div class="w3-row ">
+                  <div class="w3-col s3 w3-margin-right w3-mobile">
+                       <%= f.input :sexo, collection: Usuario.sexos.keys.to_a, required: true, class:"selectpicker"  %>
+                  </div>
+                  <div class="w3-col s4 w3-margin-right  w3-mobile">
+                       <%= f.input :naturalidade, required: true, 
+                           collection: CountryStateSelect.collect_states('br') %>
+                  </div>
+                  <div class="w3-col s3 w3-margin-right  w3-mobile">
+                       <%= f.input :estadocivil, collection: Usuario.estadocivis.keys.to_a, required: true , class:"selectpicker" %>
+                  </div>
+             </div>
+             
+              </br>
+              
+              <div class="w3-row ">
+                  <div class="w3-col s7 w3-margin-right w3-mobile">
+                        <%= f.input :email, required: true, pattern: '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%>         
+                  </div>
+                  <div class="w3-col s4 w3-margin-right  w3-mobile">
+                        <%= f.input :telefone, required: true, input_html: {type:"tel"}%>
+                  </div>
+              </div>
+              
+               </br>
+            
+              <div class="w3-row">
+                <div class="w3-col s12  w3-margin-right w3-mobile">
+                    <%= f.input :endereco,label: "Endereço Completo", 
+                    required: true, autofocus: true %>                  
+                </div>
+              </div>
+                
+              </br>
+              
+              <div class="w3-row">
+                <div class="w3-col s12 w3-margin-right  w3-mobile">
+                  <%= f.input :resumo, label: "Fale mais um pouco sobre você",  input_html:
+                            {style:"max-width:500px; min-height:150px;"} %>
+                </div>
+              </div>
+                
+            </br>
+            
+            <label class="label label-info">Deixe em branco caso não queira trocar a senha</label>
+            <div class="w3-row">
+                <div class="w3-col s5 w3-margin-right  w3-mobile">
+                    <%= f.input :password,label: "Nova Senha", required: false, 
+                    placeholder: ("minimo #{@minimum_password_length} caracteres" if @minimum_password_length) %>  
+                </div> 
+                <div class="w3-col s5 w3-margin-right  w3-mobile">
+                    <%= f.input :password_confirmation,label: "Confirmar Nova Senha", required: false%>
+                </div>
+                
+               
+            </div>
+            </br>
+            
+            <div class="w3-row">
+                <div class="w3-col s5 w3-margin-right  w3-mobile">
+                  <%= f.input :current_password, required: true %>
+                </div>
+            </div>  
+        </div>
+      
+        <div class="form-actions">
+          <%= f.button :submit, "Atualizar", class:"btn btn-warning" %>
+        </div>
       <% end %>
-      
-       <div class="w3-row">
-             <div class="w3-col s7   w3-mobile">
-                <%= f.input :foto %>
-            </div>
-            <div class="w3-col s3  w3-right  w3-mobile">
-                <% if not f.object.foto.url(:thumb).eql? "/images/thumb/missing.png"%>
-                    <%= image_tag(f.object.foto.url(:thumb), class:"w3-round-xlarge") %>
-                <%else%>
-                    <%= image_tag('user', height: '128', width: '128') %> 
-                <%end%>
-            </div>
-        </div>
         
-        </br>
-      
-        <div class="w3-row">
-            <div class="w3-col s12  w3-margin-right w3-mobile">
-                <%= f.input :nome, required: true, autofocus: true %>                  
-            </div>
-        </div>
-
-        </br>
-            
-         <div class="w3-row">
-            <div class="w3-col s4  w3-margin-right w3-mobile">
-                <%= f.input :cpf, required: true, input_html: {type:"tel"} %>
-            </div>
-            <div class="w3-col s7  w3-margin-right w3-mobile">
-                 <%= f.input :nascimento, as: :date, start_year: Date.today.year - 100,
-                              end_year: Date.today.year - 15 %>
-            </div>
-         </div>
-            
-         </br>
-         
-         <div class="w3-row ">
-              <div class="w3-col s3 w3-margin-right w3-mobile">
-                   <%= f.input :sexo, collection: Usuario.sexos.keys.to_a, required: true, class:"selectpicker"  %>
-              </div>
-              <div class="w3-col s4 w3-margin-right  w3-mobile">
-                   <%= f.input :naturalidade, required: true, collection: CountryStateSelect.countries_collection %>
-              </div>
-              <div class="w3-col s3 w3-margin-right  w3-mobile">
-                   <%= f.input :estadocivil, collection: Usuario.estadocivis.keys.to_a, required: true , class:"selectpicker" %>
-              </div>
-         </div>
-         
-          </br>
-          
-          <div class="w3-row ">
-              <div class="w3-col s7 w3-margin-right w3-mobile">
-                    <%= f.input :email, required: true, pattern: '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%>         
-              </div>
-              <div class="w3-col s4 w3-margin-right  w3-mobile">
-                    <%= f.input :telefone, required: true, input_html: {type:"tel"}%>
-              </div>
-          </div>
-            
-          </br>
-          
-          <div class="w3-row">
-            <div class="w3-col s12 w3-margin-right  w3-mobile">
-              <%= f.input :resumo, label: "Fale mais um pouco sobre você",  input_html:
-                        {style:"max-width:500px; min-height:150px;"} %>
-            </div>
-          </div>
-            
-        </br>
-        
-        <label class="label label-info">Deixe em branco caso não queira trocar a senha</label>
-        <div class="w3-row">
-            <div class="w3-col s5 w3-margin-right  w3-mobile">
-                <%= f.input :password,label: "Nova Senha", required: false, 
-                placeholder: ("minimo #{@minimum_password_length} caracteres" if @minimum_password_length) %>  
-            </div> 
-            <div class="w3-col s5 w3-margin-right  w3-mobile">
-                <%= f.input :password_confirmation,label: "Confirmar Nova Senha", required: false%>
-            </div>
-            
-           
-        </div>
-        </br>
-        
-        <div class="w3-row">
-            <div class="w3-col s5 w3-margin-right  w3-mobile">
-              <%= f.input :current_password, required: true %>
-            </div>
-        </div>  
-    </div>
-  
-    <div class="form-actions">
-      <%= f.button :submit, "Atualizar", class:"btn btn-warning" %>
-    </div>
-  <% end %>
+        <hr>
     
-    <hr>
-    
-  <div class="form-inline">
-      <div class="form-group">
-      <%= button_to "Editar Meu Curriculo", new_curriculo_path, class:"btn btn-info ", method: :get%>
+      <div class="form-inline">
+          <div class="form-group">
+          <%= button_to "Meu Curriculo", curriculo_path(current_usuario.curriculo),
+                          class:"btn btn-info ", method: :get%>
+          </div>
+          <div class="form-group">
+          <%= button_to "Voltar", root_path, class:"btn btn-danger" %>
+          </div>
       </div>
-      <div class="form-group">
-      <%= button_to "Voltar", root_path, class:"btn btn-danger" %>
-      </div>
-   </div>
   </div>
 </div>

@@ -9,7 +9,7 @@ module AppCurriculo
     
     
     config.i18n.default_locale = :'pt-BR'
-    config.time_zone = 'Brasilia' # altera o time zone para a aplicação
+    config.time_zone = 'America/Sao_Paulo' # altera o time zone para a aplicação
     config.active_record.default_timezone = :local # altera o ActiveRecord pra gravar os campos mágicos com o mesmo time zone da aplicação
    
    

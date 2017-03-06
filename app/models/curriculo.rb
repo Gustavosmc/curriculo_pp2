@@ -11,8 +11,9 @@ class Curriculo < ApplicationRecord
   
   accepts_nested_attributes_for :cargos, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :titulos, reject_if: :all_blank, allow_destroy: true
-  # accepts_nested_attributes_for :idioma_curriculos, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :idioma_curriculos, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :cargo_pretendidos, reject_if: :all_blank, allow_destroy: true
   
   
-  validates :observacao, presence: true 
+ 
 end

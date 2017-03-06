@@ -40,7 +40,7 @@
                        <%= f.input :sexo, collection: Usuario.sexos.keys.to_a, required: true, class:"selectpicker"  %>
                   </div>
                   <div class="w3-col s4 w3-margin-right  w3-mobile">
-                       <%= f.input :naturalidade, required: true, collection: CountryStateSelect.countries_collection, class:"selectpicker" %>
+                       <%= f.input :naturalidade, required: true, collection: CountryStateSelect.collect_states('br'), class:"selectpicker" %>
                   </div>
                   <div class="w3-col s3 w3-margin-right  w3-mobile">
                        <%= f.input :estadocivil, collection: Usuario.estadocivis.keys.to_a, required: true , class:"selectpicker" %>
@@ -56,6 +56,15 @@
               <div class="w3-col s4 w3-margin-right  w3-mobile">
                     <%= f.input :telefone, required: true, input_html: {type:"tel"} %>
               </div>
+            </div>
+            
+            </br>
+            
+            <div class="w3-row">
+                <div class="w3-col s12  w3-margin-right w3-mobile">
+                    <%= f.input :endereco,label: "Endereço Completo", 
+                    required: true, autofocus: true %>                  
+                </div>
             </div>
             
             </br>

@@ -3,16 +3,15 @@
        
        <%=  f.input :descricao  %>
        
-       <%=  f.input :inicio  %>
+       <%=  f.input :anos_exp %>
+  
+       <%=  f.input :meses_exp  %>
        
-       <%=  f.input :desenvolvimento, collection: Cargo.desenvolvimentos.keys.to_a,
-                                       class:"selectpicker", id:'curriculo_cargos'%>
-       <%=  f.input :fim  %>
+       <%=  f.input :dias_exp  %>
        
-       <%=  f.input :ultimo_sal  %>
+       <%=  f.input :pretensao_sal  %>
        
-       
-       <%=  f.input :detalhes  %>
+       <%=  f.input :observacao  %>
        
        <%= link_to_remove_association "Remover", f, class:"w3-button w3-red" %>
    </div>

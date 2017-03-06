@@ -5,20 +5,19 @@ class CurriculosController < ApplicationController
 
   # GET /curriculos/1
   # GET /curriculos/1.json
+
   def show
+    @foto = get_foto
+    @usuario = current_usuario
+    @mes =@usuario.nascimento.month 
+    @naturalidade = get_naturalidade(@usuario.naturalidade.to_s)
+    @estadocivil = @usuario.estadocivil ? @usuario.estadocivil : "Não definido"
   end
 
-  # GET /curriculos/new
-  def new
-    @curriculo = Curriculo.new
-    if current_usuario.curriculo
-      redirect_to edit_curriculo_path(current_usuario.curriculo)
-    end
-  end
 
   # GET /curriculos/1/edit
   def edit
-    
+    @idiomas = Idioma.all
   end
 
   # POST /curriculos
@@ -43,7 +42,7 @@ class CurriculosController < ApplicationController
   def update
     respond_to do |format|
       if @curriculo.update(curriculo_params)
-        format.html { redirect_to @curriculo, notice: 'Curriculo was successfully updated.' }
+        format.html { redirect_to @curriculo, notice: 'Curriculo atualizado com sucesso' }
         format.json { render :show, status: :ok, location: @curriculo }
       else
         format.html { render :edit }
@@ -52,17 +51,27 @@ class CurriculosController < ApplicationController
     end
   end
 
-  # DELETE /curriculos/1
-  # DELETE /curriculos/1.json
-  def destroy
-    @curriculo.destroy
-    respond_to do |format|
-      format.html { redirect_to curriculos_url, notice: 'Curriculo was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+
 
   private
+    
+    def get_naturalidade(sigla)
+      CountryStateSelect.collect_states('br').each do |s|
+        if s[1].to_s.eql? sigla
+          return s[0]
+        end
+      end
+      "Não definida"
+    end
+    
+    
+    def get_foto
+      if not current_usuario.foto.url(:medium).eql? "/images/thumb/missing.png"
+        @foto = current_usuario.foto.url(:medium)
+      else
+        @foto = 'user' 
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_curriculo
       @curriculo = Curriculo.find(current_usuario.curriculo.id)
@@ -71,8 +80,10 @@ class CurriculosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def curriculo_params
       params.require(:curriculo).permit(:observacao,
-      cargos_attributes: [:id, :descricao, :desenvolvimento, :detalhes, :fim, :incio, :ultimo_sal, :_destroy],
-      titulos_attributes: [:id, :ano, :descricao, :desenvolvimento, :entidade, :grau, :status, :_destroy],
-      idioma_curriculo_attributes: [:id, :id_idioma, :escreve, :fala, :le, :_destroy])
+      cargos_attributes: [:id, :descricao, :entidade, :desenvolvimento, :detalhes, :fim, :inicio, :ultimo_sal, :_destroy],
+      cargo_pretendidos_attributes: [:id, :descricao, :observacao, :anos_exp, :meses_exp, :dias_exp, :pretensao_sal, :_destroy],
+      titulos_attributes: [:id, :ano, :descricao, :desenvolvimento, :entidade, :grau, 
+                          :observacao, :duracao, :modalidade, :_destroy],
+      idioma_curriculos_attributes: [:id, :idioma_id, :escreve, :fala, :le, :_destroy])
     end
 end
