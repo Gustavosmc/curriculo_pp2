@@ -14,8 +14,8 @@ module AppCurriculo
    
    
    # Less
-    config.less.paths << "#{Rails.root}/lib/less/protractor/stylesheets"
-    config.less.compress = true
+     config.less.paths << "#{Rails.root}/lib/less/protractor/stylesheets"
+     config.less.compress = true
  
     # configurar armazenamento paperclip
     # config.paperclip_defaults = { storage: :fog, fog_credentials: { provider: "Local", local_root: "#{Rails.root}/public"}, fog_directory: "", fog_host: "localhost"}
