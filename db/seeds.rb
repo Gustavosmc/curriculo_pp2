@@ -1,33 +1,32 @@
  
 idioma = Idioma.create descricao: 'Português', status: 1
+Idioma.create descricao: 'Inglês', status: 1
+Idioma.create descricao: 'Espanhol', status: 1
 
 setor = Setor.create descricao: "Mercado", status: 1
 
 vaga = Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
         setor: setor, salario: 1200.00
       
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Uma vaga para uma pessoa trabalhar
+        Vaga.create descricao: "Frentista de Posto", requisitos: "Uma vaga para uma pessoa trabalhar
         Uma vaga para uma pessoa trabalhar Uma vaga para uma pessoa trabalhar", especial: 1, status: 1,
         setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
-            Vaga.create descricao: "Vaga para gerente", requisitos: "Uma vaga para uma pessoa trabalhar
+        Vaga.create descricao: "Gerente administrativo", requisitos: "Ser competente", especial: 1, status: 1,
+        setor: setor, salario: 5000.00
+        Vaga.create descricao: "Presidente da Republica do Brasil", requisitos: "Ser honesto", especial: 1, status: 1,
+        setor: setor, salario: 600.00
+        Vaga.create descricao: "Acogueiro ", requisitos: "saber usar um faca", especial: 1, status: 1,
+        setor: setor, salario: 4029.00
+        Vaga.create descricao: "Frentista de Posto 2", requisitos: "Uma vaga para uma pessoa trabalhar
         Uma vaga para uma pessoa trabalhar Uma vaga para uma pessoa trabalhar", especial: 1, status: 1,
         setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
-        Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", especial: 1, status: 1,
-        setor: setor, salario: 1200.00
+        Vaga.create descricao: "Gerente administrativo 2", requisitos: "Ser competente", especial: 1, status: 1,
+        setor: setor, salario: 5000.00
+        Vaga.create descricao: "Presidente da Republica do Brasil 2", requisitos: "Ser honesto", especial: 1, status: 1,
+        setor: setor, salario: 600.00
+        Vaga.create descricao: "Acogueiro  2", requisitos: "saber usar um faca", especial: 1, status: 1,
+        setor: setor, salario: 4029.00
+      
         
         
         
