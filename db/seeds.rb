@@ -30,7 +30,7 @@ vaga = Vaga.create descricao: "Vaga para gerente", requisitos: "Saber inglês", 
         
         
         
-curriculo = Curriculo.create observacao: "Uma observação", endereco_comp: "Rua: tal N 44 Bairro: Centro Unai-MG"
+curriculo = Curriculo.create observacao: "Uma observação"
 
 usuario = Usuario.create nome: "Gustavo", resumo: "Um resumo qualquer", cpf: "12345678901", datanascimento: '2017/01/01',
             sexo: 1, estadocivil: 1, telefone: "999999999", email: "luizgustavosmc@gmail.com", naturalidade: "Brasil",
