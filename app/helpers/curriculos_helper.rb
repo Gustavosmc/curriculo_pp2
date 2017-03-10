@@ -70,7 +70,7 @@ module CurriculosHelper
             desc << "</strong> </br>"
             desc << observacao
             desc.html_safe
-        rescue
+        rescue Exception => e 
             "Erro"
     end
     
