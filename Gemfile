@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Font Awesome
+gem 'font-awesome-rails'
+
 # Cocoon para formulários has_many
 gem "cocoon"
 
