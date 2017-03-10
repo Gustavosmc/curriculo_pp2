@@ -55,20 +55,24 @@ module CurriculosHelper
     
     
     def gerar_descricao_cargo_p(cargo_p)
-        return if not cargo_p.valid?
-        anos_exp, meses_exp, dias_exp = cargo_p.anos_exp, cargo_p.meses_exp, cargo_p.dias_exp
-        anos_exps = (anos_exp > 1) ? "#{anos_exp} anos" : (anos_exp == 1) ? "#{anos_exp} ano" : ""
-        meses_exps = (meses_exp > 1) ? "#{meses_exp} meses" : (meses_exp == 1) ? "#{meses_exp} mês" : ""
-        dias_exps = (dias_exp > 1) ? "#{dias_exp} dias" : (dias_exp == 1) ? "#{dias_exp} dia" : ""
-        experiencia = (anos_exp or meses_exp or dias_exp) ? 
-                        ", tenho experiência de " << anos_exps << " " << meses_exps << " e " << dias_exps : ""
-        pretensao_sal = (cargo_p.pretensao_sal > 0) ? ", pretensão salarial R$#{cargo_p.pretensao_sal} " : ""
-        observacao = (! cargo_p.observacao.eql? "") ? "Mais detalhes: #{cargo_p.observacao}" : ""
-        desc = "<strong>"
-        desc << cargo_p.descricao << experiencia << pretensao_sal
-        desc << "</strong> </br>"
-        desc << observacao
-        desc.html_safe
+        begin  
+            return if not cargo_p.valid?
+            anos_exp, meses_exp, dias_exp = cargo_p.anos_exp, cargo_p.meses_exp, cargo_p.dias_exp
+            anos_exps = (anos_exp > 1) ? "#{anos_exp} anos" : (anos_exp == 1) ? "#{anos_exp} ano" : ""
+            meses_exps = (meses_exp > 1) ? "#{meses_exp} meses" : (meses_exp == 1) ? "#{meses_exp} mês" : ""
+            dias_exps = (dias_exp > 1) ? "#{dias_exp} dias" : (dias_exp == 1) ? "#{dias_exp} dia" : ""
+            experiencia = (anos_exp or meses_exp or dias_exp) ? 
+                            ", tenho experiência de " << anos_exps << " " << meses_exps << " e " << dias_exps : ""
+            pretensao_sal = (cargo_p.pretensao_sal > 0) ? ", pretensão salarial R$#{cargo_p.pretensao_sal} " : ""
+            observacao = (! cargo_p.observacao.eql? "") ? "Mais detalhes: #{cargo_p.observacao}" : ""
+            desc = "<strong>"
+            desc << cargo_p.descricao << experiencia << pretensao_sal
+            desc << "</strong> </br>"
+            desc << observacao
+            desc.html_safe
+        rescue
+            "Erro"
     end
+    
     
 end
