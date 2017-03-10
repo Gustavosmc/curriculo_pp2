@@ -4,7 +4,9 @@ class VagasController < ApplicationController
   # GET /vagas
   # GET /vagas.json
   def index
-    @vagas = Vaga.paginate(:page => params[:page])
+    @vagas = Vaga.search(params[:search]).paginate(:per_page => 8, :page => params[:page])
+
+    # @vagas = Vaga.paginate(:page => params[:page])
   end
 
   # GET /vagas/1

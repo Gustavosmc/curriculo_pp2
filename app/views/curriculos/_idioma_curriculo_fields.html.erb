@@ -3,13 +3,14 @@
        
        <%=  f.association :idioma, collection: @idiomas, label_method: :descricao %>
        
-       <%=  f.input :le, collection: IdiomaCurriculo.les.keys.to_a, required: true , class:"selectpicker"  %>
+       <%=  f.input :le, collection: IdiomaCurriculo.les.keys.to_a, required: true   %>
        
-       <%=  f.input :escreve, collection: IdiomaCurriculo.escreves.keys.to_a, required: true , class:"selectpicker"  %>
+       <%=  f.input :escreve, collection: IdiomaCurriculo.escreves.keys.to_a, required: true   %>
        
-       <%=  f.input :fala, collection: IdiomaCurriculo.falas.keys.to_a, required: true , class:"selectpicker"  %>
+       <%=  f.input :fala, collection: IdiomaCurriculo.falas.keys.to_a, required: true  %>
        
     
-       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red" %>
+       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red",
+           data: { confirm: 'Deseja realmente remover este Idioma?' } %>
    </div>
 </div>

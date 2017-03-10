@@ -1,18 +1,61 @@
 <div class="nested-fields s6 w3-card-8 w3-round-xlarge w3-col w3-margin-top w3-mobile">
    <div class="fields w3-margin w3-row">
        
-       <%=  f.input :descricao  %>
+        <div class="w3-row">
+            <div class="w3-col s12 w3-margin-right">
+                <%= f.input :descricao %>     
+            </div>
+        </div>    
+
+
+        <%= label(:cargo_pretendido, "Tempo de Experiência") %>
+        <div class="w3-row w3-mobile">
+            
+            <div class="w3-col s3 w3-margin-right w3-mobile">
+                <div class="w3-col s4 w3-mobile">
+                    <%= label(:cargo_pretendido, :anos) %>
+                </div>
+                <div class="w3-col s8 w3-mobile">
+                   <%=  f.input :anos_exp, inline_label: true, label: false %>
+               </div>
+            </div>
+            
+            
+            <div class="w3-col s3 w3-margin-right w3-mobile">
+                <div class="w3-col s5 w3-mobile">
+                    <%= label(:cargo_pretendido, :meses) %>
+                </div>         
+                <div class="w3-col s7 w3-mobile">
+                   <%=  f.input :meses_exp, inline_label: true, label: false %> 
+               </div>
+                    
+            </div>
+            
+            <div class="w3-col s3 w3-margin-right w3-mobile">
+                <div class="w3-col s4 w3-mobile">
+                    <%= label(:cargo_pretendido, :dias) %>
+                </div>         
+                <div class="w3-col s8 w3-mobile">
+                   <%=  f.input :dias_exp, inline_label: true, label: false %> 
+               </div>
+                    
+            </div>
+        </div>    
+        
+        
+        <div class="pretensao_sal0 w3-row">
+            <div class="pretensao_sal1 w3-col s4 w3-margin-right">
+                <%=  f.input :pretensao_sal, input_html: {type: "text"} %>     
+            </div>
+        </div>    
        
-       <%=  f.input :anos_exp %>
-  
-       <%=  f.input :meses_exp  %>
+         <div class="w3-row">
+            <div class="w3-col s12 w3-margin-right">
+                <%=  f.input :observacao  %>     
+            </div>
+        </div>  
        
-       <%=  f.input :dias_exp  %>
-       
-       <%=  f.input :pretensao_sal  %>
-       
-       <%=  f.input :observacao  %>
-       
-       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red" %>
+       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red",
+           data: { confirm: 'Deseja realmente remover este Cargo Pretendido?' } %>
    </div>
 </div>

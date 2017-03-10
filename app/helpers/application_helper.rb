@@ -1,4 +1,7 @@
 module ApplicationHelper
+  
+  
+
     
   # Renderiza um cabeçalho padrão para as views
   def description_w3(description)
@@ -9,16 +12,16 @@ module ApplicationHelper
     
     
     
-  def bootstrap_class_for flash_type
+  def w3_class_for flash_type
     case flash_type
-      when :success
-        "alert-success"
-      when :error
-        "alert-error"
-      when :alert
-        "alert-block"
-      when :notice
-        "alert-info"
+      when 'success'
+        " w3-green "
+      when 'error'
+        " w3-red "
+      when 'alert'
+        " w3-orange "
+      when 'notice'
+        " w3-blue "
       else
         flash_type.to_s
     end

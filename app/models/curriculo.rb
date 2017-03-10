@@ -1,4 +1,5 @@
 class Curriculo < ApplicationRecord
+  
 
   has_one :usuario
   
@@ -15,5 +16,7 @@ class Curriculo < ApplicationRecord
   accepts_nested_attributes_for :cargo_pretendidos, reject_if: :all_blank, allow_destroy: true
   
   
+  
+
  
 end

@@ -80,10 +80,11 @@ class CurriculosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def curriculo_params
       params.require(:curriculo).permit(:observacao,
-      cargos_attributes: [:id, :descricao, :entidade, :desenvolvimento, :detalhes, :fim, :inicio, :ultimo_sal, :_destroy],
-      cargo_pretendidos_attributes: [:id, :descricao, :observacao, :anos_exp, :meses_exp, :dias_exp, :pretensao_sal, :_destroy],
-      titulos_attributes: [:id, :ano, :descricao, :desenvolvimento, :entidade, :grau, 
-                          :observacao, :duracao, :modalidade, :_destroy],
-      idioma_curriculos_attributes: [:id, :idioma_id, :escreve, :fala, :le, :_destroy])
+        cargos_attributes: [:id, :descricao, :entidade, :desenvolvimento, :detalhes, :fim, :inicio, :ultimo_sal, :_destroy],
+        cargo_pretendidos_attributes: [:id, :descricao, :observacao, :anos_exp, :meses_exp, :dias_exp, :pretensao_sal, :_destroy],
+        titulos_attributes: [:id, :ano, :descricao, :desenvolvimento, :entidade, :grau, 
+                            :observacao, :duracao, :modalidade, :_destroy],
+        idioma_curriculos_attributes: [:id, :idioma_id, :escreve, :fala, :le, :_destroy])
+        
     end
 end

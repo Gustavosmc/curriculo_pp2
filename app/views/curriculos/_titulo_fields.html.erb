@@ -9,7 +9,7 @@
       
        <%=  f.input :grau, collection: Titulo.graus.keys.to_a, class:"selectpicker" %>
        
-       <%=  f.input :ano  %>
+       <%= f.input :ano, collection: (Time.zone.now.year - 80)..(Time.zone.now.year ) %>
        
        <%=  f.input :duracao  %>
        
@@ -17,6 +17,7 @@
        
        <%=  f.input :observacao  %>
        
-       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red" %>
+       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red",
+           data: { confirm: 'Deseja realmente remover este Título?' } %>
    </div>
 </div>

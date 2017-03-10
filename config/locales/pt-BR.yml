@@ -12,7 +12,40 @@
         remember_me: Lembre-se de mim
         reset_password_token: Resetar token de senha
         unlock_token: Desbloquear token
+      cargo_pretendido:
+        descricao: Descrição
+        anos_exp: Anos
+        meses_exp: Meses
+        dias_exp: Dias
+        pretensao_sal: Pretensão Salarial
+        observacao: Observação
+      cargo:
+        descricao: Descrição
+        entidade: Empresa
+        desenvolvimento: Cargo Atual
+        ultimo_sal: Último Salário
+        detalhes: Mais Detalhes
+        inicio: Início Nesse Cargo
+        fim: Fim Nesse Cargo
+      idioma:
+        descricao: Idioma
+      idioma_curriculo:
+        le: Leitura
+        escreve: Escrita
+        fala: Conversação
+      titulo:
+        grau: Grau
+        ano: Ano Inicial
+        duracao: Duração(Horas)
+        descricao: Descrição
+        entidade: Entidade
+        modalidade: Modalidade
+        observacao: Observação
     models:
+      titulo: Título
+      idioma: Idioma
+      cargo: Cargo
+      cargo_pretendido: Cargo Pretendido
       usuario: Usuário
   devise:
     confirmations:

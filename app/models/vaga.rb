@@ -10,8 +10,14 @@ class Vaga < ApplicationRecord
   enum especial: { SIM: 1, NÃO: 0}
   enum status: {CANCELADA: 0, ABERTA: 1, FECHADA: 2}
   
-  # Paginação
-  self.per_page = 7
   
+  
+  def self.search(search)
+    if search
+      where('descricao LIKE ? and status = ?', "%#{search}%", 1)
+    else
+      where('status = ?', 1)
+    end
+  end
   
 end
