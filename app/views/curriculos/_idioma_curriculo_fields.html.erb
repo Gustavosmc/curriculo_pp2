@@ -1,7 +1,7 @@
 <div class="nested-fields s6 w3-card-8 w3-round-xlarge w3-col w3-margin-top w3-mobile">
    <div class="fields w3-margin w3-row">
        
-       <%=  f.association :idioma, collection: @idiomas, label_method: :descricao %>
+       <%=  f.association :idioma, collection: @idiomas, label_method: :descricao, required: true %>
        
        <%=  f.input :le, collection: IdiomaCurriculo.les.keys.to_a, required: true   %>
        
@@ -10,7 +10,6 @@
        <%=  f.input :fala, collection: IdiomaCurriculo.falas.keys.to_a, required: true  %>
        
     
-       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red",
-           data: { confirm: 'Deseja realmente remover este Idioma?' } %>
+       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red"  %>
    </div>
 </div>

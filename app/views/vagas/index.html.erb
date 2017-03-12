@@ -6,12 +6,23 @@
   <%= description_w3('Vagas Disponiveis') %>
   
   <div class="w3-row w3-card w3-margin">
-      <div class="w3-col s1 w3-center w3-margin w3-right">
-          <%= button_to "Filtrar", "#", class: "w3-btn w3-white w3-border w3-border-green w3-text-green w3-round-large" %>
-      </div>
-      
-      <div class="filtros w3-col s3 w3-margin-left">
-          <strong>Descrição</strong>
+     
+        <div class="filtros w3-row s12 w3-margin-left w3-mobile">
+          <%= form_tag vagas_path, :method => 'get' do %>
+                <div class="w3-col w3-row s4 w3-margin w3-left w3-mobile">
+                  <div class="w3-col s10 w3-center">
+                    <label for="search" class="w3-text-blue">Descrição</label>
+                  </div>
+                  <div class="w3-col s10">
+                    <%= text_field_tag :search, params[:search], class: "w3-input w3-border" %>
+                   </div>
+                </div>  
+                
+                <div class="w3-col s1 w3-center w3-margin w3-right w3-mobile">
+                    <%= submit_tag "Filtrar",  class: "w3-btn w3-white w3-border w3-border-green w3-text-green w3-round-large" %>
+                </div>
+             
+          <% end %>
         
       </div>
       
@@ -19,7 +30,7 @@
   </div>
         
   <% unless @vagas.empty? %>
-  <table class='w3-table w3-striped w3-hoverable w3-centered'>
+  <table class='w3-table w3-striped w3-hoverable '>
     <thead>
       <tr>
         <th>Descrição</th>
@@ -33,7 +44,7 @@
     <tbody>
       <% @vagas.each do |vaga| %>
        
-        <tr >
+        <tr>
           <td><%= vaga.descricao %></td>
           <td><%= vaga.especial %></td>
           <td><%= vaga.setor.descricao %></td>

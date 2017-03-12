@@ -7,6 +7,7 @@ Bundler.require(*Rails.groups)
 module AppCurriculo
   class Application < Rails::Application
     
+    config.active_record.index_nested_attribute_errors = true
     
     config.i18n.default_locale = :'pt-BR'
     config.time_zone = 'America/Sao_Paulo' # altera o time zone para a aplicação

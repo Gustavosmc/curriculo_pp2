@@ -1,6 +1,12 @@
 class Cargo < ApplicationRecord
-  attr_accessor :ultimo_sal
+  validates :descricao, presence: true, length: { maximum: 80 }
+  validates :desenvolvimento, presence: true
+  validates :entidade, presence: true, length: { maximum: 80 }
+  validates :inicio, presence: true
   
+ 
+ 
+  attr_accessor :ultimo_sal
   
   belongs_to :curriculo
   

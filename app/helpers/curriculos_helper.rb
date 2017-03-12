@@ -33,7 +33,7 @@ module CurriculosHelper
         return if not titulo.valid?
         desc = "<strong>"
         desenv = titulo.desenvolvimento ? titulo.desenvolvimento : " "
-        grau = titulo.grau ? titulo.grau + " em " : " "
+        grau = titulo.grau ? ((not titulo.grau.eql? "Outros") ? titulo.grau + " em " : "" ) : " "
         entidade = titulo.entidade ?  " na entidade " << titulo.entidade : " "
         ano = titulo.ano ? " com inicio em " << titulo.ano.to_s : " "
         duracao = titulo.duracao ? " e duração de " << titulo.duracao.to_s << "/horas " : " "
@@ -55,15 +55,20 @@ module CurriculosHelper
     
     
     def gerar_descricao_cargo_p(cargo_p)
-        return if not cargo_p.valid?
-        anos_exp, meses_exp, dias_exp = cargo_p.anos_exp, cargo_p.meses_exp, cargo_p.dias_exp
+        return "" if (not cargo_p.valid? or not cargo_p or cargo_p.descricao.eql? "")
+        anos_exp = cargo_p.anos_exp ? cargo_p.anos_exp : 0
+        meses_exp = cargo_p.meses_exp ? cargo_p.meses_exp : 0
+        dias_exp =  cargo_p.dias_exp ? cargo_p.dias_exp : 0
         anos_exps = (anos_exp > 1) ? "#{anos_exp} anos" : (anos_exp == 1) ? "#{anos_exp} ano" : ""
         meses_exps = (meses_exp > 1) ? "#{meses_exp} meses" : (meses_exp == 1) ? "#{meses_exp} mês" : ""
-        dias_exps = (dias_exp > 1) ? "#{dias_exp} dias" : (dias_exp == 1) ? "#{dias_exp} dia" : ""
-        experiencia = (anos_exp or meses_exp or dias_exp) ? 
-                        ", tenho experiência de " << anos_exps << " " << meses_exps << " e " << dias_exps : ""
-        pretensao_sal = (cargo_p.pretensao_sal > 0) ? ", pretensão salarial R$#{cargo_p.pretensao_sal} " : ""
-        observacao = (! cargo_p.observacao.eql? "") ? "Mais detalhes: #{cargo_p.observacao}" : ""
+        dias_exps = (dias_exp > 1) ? " e #{dias_exp} dias" : (dias_exp == 1) ? "#{dias_exp} dia" : ""
+        experiencia = (anos_exp > 0 or meses_exp > 0 or dias_exp > 0) ? 
+                        ", tenho experiência de " << anos_exps << " " << meses_exps << dias_exps : ""
+        pretensao_sal = cargo_p.pretensao_sal ? 
+                ((cargo_p.pretensao_sal > 0) ? ", pretensão salarial R$#{cargo_p.pretensao_sal} " : "") : ""
+                
+        observacao = cargo_p.observacao ? 
+                ((! cargo_p.observacao.eql? "") ? "Mais detalhes: #{cargo_p.observacao}" : "") : ""
         desc = "<strong>"
         desc << cargo_p.descricao << experiencia << pretensao_sal
         desc << "</strong> </br>"

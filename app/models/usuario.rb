@@ -1,5 +1,13 @@
 class Usuario < ApplicationRecord
+  validates :nome, presence: true, length: { minimum: 10, maximum: 160 }
+  validates :telefone, presence: true, length: { maximum: 15 }
+  validates :cpf, presence: true, length: { maximum: 15 } , uniqueness: true
+  validates :naturalidade, presence: true
+  validates :endereco, presence: true, length: { maximum: 160 }
+  validates :nascimento, presence: true
   
+
+  attr_accessor :cpf, :telefone
 
   has_one :curriculo
   has_many :candidatos
@@ -25,6 +33,27 @@ class Usuario < ApplicationRecord
   after_initialize :default_values
   def default_values
     self.curriculo ||= Curriculo.create
+  end
+  
+  
+  
+  def telefone=(val)
+    val = val.gsub("-", '').gsub("(", '').gsub(")", '').gsub(" ", '')
+    write_attribute(:telefone, val)
+  end
+  
+  def telefone
+    read_attribute(:telefone)
+  end
+  
+  
+  def cpf=(val)
+    val = val.gsub("-", '').gsub(".", '')
+    write_attribute(:cpf, val)
+  end
+  
+  def cpf
+    read_attribute(:cpf)
   end
   
          

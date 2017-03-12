@@ -1,4 +1,5 @@
 class Vaga < ApplicationRecord
+  validates :descricao, presence: true, length: { maximum: 80 }
   
   # ActiveRecord relacionamentos
   belongs_to :setor
@@ -19,5 +20,7 @@ class Vaga < ApplicationRecord
       where('status = ?', 1)
     end
   end
+  
+  
   
 end

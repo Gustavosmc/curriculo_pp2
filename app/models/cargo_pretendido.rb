@@ -1,4 +1,7 @@
 class CargoPretendido < ApplicationRecord
+  validates :descricao, presence: true,  length: { maximum: 80 }
+  
+  
   attr_accessor :pretensao_sal
   belongs_to :curriculo
   

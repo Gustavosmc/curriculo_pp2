@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305214841) do
+ActiveRecord::Schema.define(version: 20170312213811) do
 
   create_table "candidatos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "vaga_id"
@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 20170305214841) do
     t.integer  "estadocivil"
     t.string   "telefone"
     t.string   "naturalidade"
-    t.integer  "tipo"
     t.integer  "status"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false

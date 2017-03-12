@@ -16,20 +16,22 @@
         
         <div class="w3-row">
             <div class="w3-col s12 w3-margin-right">
-                 <%=  f.input :inicio  %>
+                 <%=  f.input :inicio, start_year: Date.today.year - 100,
+                              end_year: Date.today.year  %>
             </div>
         </div>      
         
-        <div class="w3-row">
-            <div class="w3-col s3 w3-margin-right">
+        <div class="desenvolvimento0 w3-row">
+            <div class="desenvolvimento1 w3-col s3 w3-margin-right">
                  <%=  f.input :desenvolvimento, collection: Cargo.desenvolvimentos.keys.to_a, default: 'NÂO',
-                                       class:"selectpicker", id:'curriculo_cargos'%>
+                                       class:"selectpicker"%>
             </div>
         </div>
         
-        <div class="w3-row">
-            <div class="w3-col s12 w3-margin-right">
-                  <%=  f.input :fim  %>
+        <div class="fim0 w3-row">
+            <div class="fim1 w3-col s12 w3-margin-right">
+                  <%=  f.input :fim , as: :date, start_year: Date.today.year - 100,
+                              end_year: Date.today.year %>
             </div>
         </div>   
         
@@ -46,7 +48,6 @@
         </div>   
       
    
-       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red",
-           data: { confirm: 'Deseja realmente remover este Cargo?' }  %>
+       <%= link_to_remove_association "Remover", f, class:"w3-button w3-red" %>
    </div>
 </div>
