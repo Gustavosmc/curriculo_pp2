@@ -3,9 +3,12 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
+ENV['RAILS_ADMIN_THEME'] = 'rollincode'
 
 module AppCurriculo
   class Application < Rails::Application
+    
+   
     
     config.active_record.index_nested_attribute_errors = true
     

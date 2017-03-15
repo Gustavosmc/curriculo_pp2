@@ -1,4 +1,4 @@
-pt-BR:
+'pt-BR':
   will_paginate:
     previous_label: <i class="fa fa-angle-double-left "></i>
     next_label: <i class="fa fa-angle-double-right "></i>

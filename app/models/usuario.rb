@@ -1,20 +1,22 @@
 class Usuario < ApplicationRecord
-  validates :nome, presence: true, length: { minimum: 10, maximum: 160 }
+  attr_accessor :cpf, :telefone
+
+  
+  validates :nome, presence: true, length: { minimum: 3, maximum: 160 }
   validates :telefone, presence: true, length: { maximum: 15 }
   validates :cpf, presence: true, length: { maximum: 15 } , uniqueness: true
   validates :naturalidade, presence: true
   validates :endereco, presence: true, length: { maximum: 160 }
-  validates :nascimento, presence: true
+  validates :datanascimento, presence: true
   
 
-  attr_accessor :cpf, :telefone
 
   has_one :curriculo
   has_many :candidatos
   has_many :vagas, through: :candidatos
   
   # Paperclip, upload arquivos
-  has_attached_file :foto, styles: { medium: "236x316>", thumb: "118x158>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :foto, styles: { medium: "236x316>", thumb: "118x158>" },  :default_url => "/images/default_image.png"
   validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
   
   validates_attachment :foto, content_type: { content_type: ["image/jpeg", "image/png"]}

@@ -1,6 +1,6 @@
 Rails.application.configure do
  
-  
+ 
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -9,7 +9,7 @@ Rails.application.configure do
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  config.eager_load = false
 
   # Full error reports are dclisabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -27,7 +27,7 @@ Rails.application.configure do
 
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
   
   
 

@@ -16,8 +16,9 @@
                     <%= f.input :foto %>
                 </div>
                 <div class="w3-col s3  w3-right  w3-mobile">
-                    <% if not f.object.foto.url(:thumb).eql? "/images/thumb/missing.png"%>
-                        <%= image_tag(f.object.foto.url(:thumb), class:"w3-round-xlarge") %>
+                    <% if not f.object.foto.url(:thumb).eql? "/images/default_image.png"%>
+                        <%= image_tag(f.object.foto.url(:thumb), class:"w3-round-xlarge",
+                            height: '118', width: '158') %>
                     <%else%>
                         <%= image_tag('user', height: '128', width: '128') %> 
                     <%end%>

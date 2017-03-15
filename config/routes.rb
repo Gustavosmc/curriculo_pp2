@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  
+  devise_for :admin_useres, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
+  
+  
   root to: 'home#index'
   
   resources :curriculos, except: [:index, :destroy, :new, :create]

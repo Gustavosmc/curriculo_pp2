@@ -1,4 +1,4 @@
-:'pt-BR':
+'pt-BR':
   activerecord:
     attributes:
       usuario:
@@ -7,6 +7,7 @@
         password: Senha
         nome: Nome Completo
         estadocivil: Estado Civil
+        endereco: Endereco
         cpf: CPF
         password_confirmation: Confirme sua senha
         remember_me: Lembre-se de mim
