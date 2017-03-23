@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313023015) do
+ActiveRecord::Schema.define(version: 20170317235301) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20170313023015) do
     t.datetime "updated_at",               null: false
     t.string   "descricao"
     t.float    "salario",    limit: 24
+    t.integer  "n_vagas"
     t.index ["setor_id"], name: "index_vagas_on_setor_id", using: :btree
   end
 

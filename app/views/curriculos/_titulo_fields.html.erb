@@ -5,15 +5,16 @@
        
        <%=  f.input :entidade  %>
     
-       <%=  f.input :modalidade, collection: Titulo.modalidades.keys.to_a, class:"selectpicker"  %>
+       <%=  f.input :modalidade, collection: Titulo.modalidades.keys.to_a, include_blank: false, class:"selectpicker"  %>
       
-       <%=  f.input :grau, collection: Titulo.graus.keys.to_a, class:"selectpicker" %>
+       <%=  f.input :grau, collection: Titulo.graus.keys.to_a, include_blank: false, class:"selectpicker" %>
        
        <%= f.input :ano, collection: (Time.zone.now.year - 80)..(Time.zone.now.year ) %>
        
        <%=  f.input :duracao  %>
        
-       <%=  f.input :desenvolvimento, collection: Titulo.desenvolvimentos.keys.to_a, class:"selectpicker"%>
+       <%=  f.input :desenvolvimento, collection: Titulo.desenvolvimentos.keys.to_a,
+               include_blank: false, class:"selectpicker"%>
        
        <%=  f.input :observacao  %>
        

@@ -1,4 +1,6 @@
 'pt-BR':
+  active_admin:
+    powered_by: Copyright Islug
   activerecord:
     attributes:
       usuario:
@@ -30,6 +32,9 @@
         fim: Fim Nesse Cargo
       idioma:
         descricao: Idioma
+      vaga:
+        created_at: Criada em
+        updated_at: Atualizada em
       idioma_curriculo:
         le: Leitura
         escreve: Escrita
@@ -42,7 +47,14 @@
         entidade: Entidade
         modalidade: Modalidade
         observacao: Observação
+      admin_user:
+        password: Senha
+        password_confirmation: Confirmação Senha
+        created_at: Criado Entre
     models:
+      contratacao: Contratação
+      comment: Comentário
+      admin_user: Administrador
       titulo: Título
       idioma: Idioma
       cargo: Cargo

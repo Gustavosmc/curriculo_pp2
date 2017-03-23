@@ -65,7 +65,8 @@ module CurriculosHelper
         experiencia = (anos_exp > 0 or meses_exp > 0 or dias_exp > 0) ? 
                         ", tenho experiência de " << anos_exps << " " << meses_exps << dias_exps : ""
         pretensao_sal = cargo_p.pretensao_sal ? 
-                ((cargo_p.pretensao_sal > 0) ? ", pretensão salarial R$#{cargo_p.pretensao_sal} " : "") : ""
+                ((cargo_p.pretensao_sal > 0) ? 
+                ", pretensão salarial #{number_to_currency(cargo_p.pretensao_sal)} " : "") : ""
                 
         observacao = cargo_p.observacao ? 
                 ((! cargo_p.observacao.eql? "") ? "Mais detalhes: #{cargo_p.observacao}" : "") : ""

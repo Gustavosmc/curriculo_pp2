@@ -1,7 +1,7 @@
 class Curriculo < ApplicationRecord
   
 
-  has_one :usuario
+  belongs_to :usuario
   
   has_many :cargos
   has_many :cargo_pretendidos

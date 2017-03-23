@@ -48,7 +48,7 @@
           <td><%= vaga.descricao %></td>
           <td><%= vaga.especial %></td>
           <td><%= vaga.setor.descricao %></td>
-          <td><%= vaga.salario %></td>
+          <td><%= number_to_currency vaga.salario %></td>
           <td ><%= button_to 'Mais Detalhes', vaga, class: 'btn btn-info btn-xs', method: :get, 
                               form: {style: 'display:inline-block;'}%>
                <%= button_to 'Candidatar', new_candidato_path, class: 'btn btn-success btn-xs', method: :get, 

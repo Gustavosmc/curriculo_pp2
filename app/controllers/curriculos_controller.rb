@@ -11,7 +11,7 @@ class CurriculosController < ApplicationController
     @usuario = current_usuario
     @mes =@usuario.nascimento.month 
     @naturalidade = get_naturalidade(@usuario.naturalidade.to_s)
-    @estadocivil = @usuario.estadocivil ? @usuario.estadocivil : "Não definido"
+    @estadocivil = @usuario.estadocivil ? @usuario.estadocivil : ""
   end
 
 
@@ -72,6 +72,7 @@ class CurriculosController < ApplicationController
         @foto = 'user' 
       end
     end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_curriculo
       @curriculo = Curriculo.find(current_usuario.curriculo.id)

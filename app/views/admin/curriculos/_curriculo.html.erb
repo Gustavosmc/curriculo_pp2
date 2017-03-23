@@ -1,0 +1,124 @@
+<div class=" w3-margin w3-center w3-card-4 w3-row w3-mobile " id="curriculo-vitae" > 
+
+    <div class="curriculo-cabecalho w3-center w3-blue">
+        <h2>Curriculum Vitae</h2>
+    </div>
+    
+    <div class="nome w3-margin s12">
+        <h4><%= usuario.nome %></h4>
+    </div>
+    
+    <div class=" w3-col s12 w3-right">
+        
+        <div class="foto w3-col s3 w3-right w3-margin-right  w3-mobile">
+            <%= image_tag( foto, class:"w3-image") %> 
+        </div>
+        
+        <div class="dados-pessoais w3-col s8 w3-left  ">
+          <h5 class="w3-left w3-margin-left s12">Dados Pessoais</h5>
+            <div class="endereco w3-col w3-margin-left">
+                <strong class="w3-left w3-margin-left">Endereço: </strong>
+                <div class="w3-left w3-margin-left"><%= usuario.endereco %></div>
+            </div>
+            
+            <div class="endereco w3-col w3-margin-left">
+                <strong class="w3-left w3-margin-left">Data Nascimento: </strong>
+                <div class="w3-left w3-margin-left">
+                    <%= usuario.nascimento.strftime("%d de #{mes_portugues mes} de %Y") %>
+                </div>
+            </div>
+            
+            <div class="endereco w3-col w3-margin-left">
+                <strong class="w3-left w3-margin-left">Naturalidade: </strong>
+                <div class="w3-left w3-margin-left">
+                    <%= naturalidade %>
+                </div>
+            </div>
+            
+            <div class="endereco w3-col w3-margin-left">
+                <strong class="w3-left w3-margin-left">Sexo: </strong>
+                <div class="w3-left w3-margin-left">
+                    <%= usuario.sexo %>
+                </div>
+            </div>
+            
+            <div class="endereco w3-col w3-margin-left">
+                <strong class="w3-left w3-margin-left">Estado Civil: </strong>
+                <div class="w3-left w3-margin-left">
+                    <%= estadocivil %>
+                </div>
+            </div>
+            
+            <h5 class="w3-left w3-margin-left s12">Contato</h5>
+             <div class="endereco w3-col w3-margin-left">
+                <strong class="w3-left w3-margin-left">Telefone: </strong>
+                <div class="w3-left w3-margin-left">
+                    <%= usuario.telefone %>
+                </div>
+            </div>
+            
+             <div class="endereco w3-col w3-margin-left">
+                <strong class="w3-left w3-margin-left">Email: </strong>
+                <div class="w3-left w3-margin-left">
+                    <%= usuario.email %>
+                </div>
+             </div>
+        </div>
+    </div>
+    
+     <div class="w3-col s12 w3-right">
+        <h5 class="w3-left w3-margin-left">Idiomas</h5>
+         <div class="w3-row w3-col w3-margin-left">
+            <% curriculo.idioma_curriculos.each do |idioma| %>
+                <p align="left" class="w3-margin-left">
+                  <%= gerar_descricao_idioma idioma %>
+                </p>
+            <% end %>
+         </div>
+    </div>
+    
+    <div class="w3-col s12 w3-right">
+        <h5 class="w3-left w3-margin-left">Titulos</h5>
+         <div class="w3-row w3-col w3-margin-left">
+             <% curriculo.titulos.each do |titulo| %>
+                <p align="left" class="w3-margin-left">
+                  <%= gerar_descricao_titulo titulo %>
+                </p>
+            <% end %>
+         </div>
+    </div>
+    
+    <div class="w3-col s12 w3-right">
+        <h5 class="w3-left w3-margin-left">Experiência Profissinal</h5>
+         <div class="w3-row w3-col w3-margin-left">
+            <% curriculo.cargos.each do |cargo| %>
+                <p align="left" class="w3-margin-left">
+                  <%= gerar_descricao_cargo cargo %>
+                </p>
+            <% end %>
+         </div>
+    </div>
+    
+    <div class="w3-col s12 w3-right">
+        <h5 class="w3-left w3-margin-left">Cargos Pretendidos</h5>
+         <div class="w3-row w3-col w3-margin-left">
+            <% curriculo.cargo_pretendidos.each do |cargo_p| %>
+                <p align="left" class="w3-margin-left">
+                  <%= gerar_descricao_cargo_p cargo_p %>
+                </p>
+            <% end %>
+         </div>
+    </div>
+    
+     <div class="w3-col s12 w3-right">
+        <h5 class="w3-left w3-margin-left">Observações Finais</h5>
+         <div class="w3-row w3-col w3-margin-left">
+                <p align="left" class="w3-margin-left">
+                  <%= curriculo.observacao %>
+                </p>
+            
+         </div>
+    </div>
+  
+
+</div>

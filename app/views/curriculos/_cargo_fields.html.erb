@@ -23,7 +23,7 @@
         
         <div class="desenvolvimento0 w3-row">
             <div class="desenvolvimento1 w3-col s3 w3-margin-right">
-                 <%=  f.input :desenvolvimento, collection: Cargo.desenvolvimentos.keys.to_a, default: 'NÂO',
+                 <%=  f.input :desenvolvimento, collection: Cargo.desenvolvimentos.keys.to_a, include_blank: false, default: 'NÂO',
                                        class:"selectpicker"%>
             </div>
         </div>

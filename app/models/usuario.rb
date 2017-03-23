@@ -7,7 +7,6 @@ class Usuario < ApplicationRecord
   validates :cpf, presence: true, length: { maximum: 15 } , uniqueness: true
   validates :naturalidade, presence: true
   validates :endereco, presence: true, length: { maximum: 160 }
-  validates :datanascimento, presence: true
   
 
 
@@ -30,17 +29,16 @@ class Usuario < ApplicationRecord
   enum sexo: {Feminino: 0, Masculino: 1}
   enum estadocivil: {Solteiro: 0, Casado: 1, Divorciado: 2, Viúvo: 3, Separado: 4, Companheiro: 5}
          
-         
-         
-  after_initialize :default_values
-  def default_values
-    self.curriculo ||= Curriculo.create
+  
+  after_initialize :criar_curriculo
+
+  def criar_curriculo
+    self.curriculo ||= Curriculo.new if self.new_record?
   end
-  
-  
+
   
   def telefone=(val)
-    val = val.gsub("-", '').gsub("(", '').gsub(")", '').gsub(" ", '')
+    val = val.gsub("-", '').gsub("(", '').gsub(")", '').gsub(" ", '').gsub("_", '')
     write_attribute(:telefone, val)
   end
   
@@ -57,6 +55,7 @@ class Usuario < ApplicationRecord
   def cpf
     read_attribute(:cpf)
   end
+  
   
          
 end
