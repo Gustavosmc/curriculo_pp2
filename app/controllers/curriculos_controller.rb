@@ -12,30 +12,39 @@ class CurriculosController < ApplicationController
     @mes =@usuario.nascimento.month 
     @naturalidade = get_naturalidade(@usuario.naturalidade.to_s)
     @estadocivil = @usuario.estadocivil ? @usuario.estadocivil : ""
+    
+    respond_to do |format|
+      format.html
+      format.pdf do
+         render pdf: "curriculo",
+            template: "curriculos/show.pdf.erb",
+            encoding: 'utf8'
+      end
+    end
   end
 
 
   # GET /curriculos/1/edit
   def edit
-    @idiomas = Idioma.all
+    @idiomas = Idioma.where(status: 1)
   end
 
-  # POST /curriculos
-  # POST /curriculos.json
-  def create
-    @curriculo = Curriculo.new(curriculo_params)
-    @curriculo.usuario = current_usuario
+  # # POST /curriculos
+  # # POST /curriculos.json
+  # def create
+  #   @curriculo = Curriculo.new(curriculo_params)
+  #   @curriculo.usuario = current_usuario
 
-    respond_to do |format|
-      if @curriculo.save
-        format.html { redirect_to @curriculo, notice: 'Curriculo was successfully created.' }
-        format.json { render :show, status: :created, location: @curriculo }
-      else
-        format.html { render :new }
-        format.json { render json: @curriculo.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @curriculo.save
+  #       format.html { redirect_to @curriculo, notice: 'Curriculo was successfully created.' }
+  #       format.json { render :show, status: :created, location: @curriculo }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @curriculo.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /curriculos/1
   # PATCH/PUT /curriculos/1.json

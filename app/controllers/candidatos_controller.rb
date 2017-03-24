@@ -62,16 +62,17 @@ class CandidatosController < ApplicationController
       end
     end
   end
-
+  
+  # Modificado não deleta apenas muda o status do candidato
   # DELETE /candidatos/1
   # DELETE /candidatos/1.json
   def destroy
     @candidato.status = 0
-     respond_to do |format|
+    respond_to do |format|
       if @candidato.save
         format.html { redirect_to candidatos_url, notice: 'Registro cancelado com sucesso' }
       end
-     end
+    end
   end
 
   private

@@ -50,7 +50,9 @@
       admin_user:
         password: Senha
         password_confirmation: Confirmação Senha
-        created_at: Criado Entre
+        created_at: Criado Em
+        current_sign_in_at: Entrada atual em
+        sign_in_count: Contador de Entradas
     models:
       contratacao: Contratação
       comment: Comentário

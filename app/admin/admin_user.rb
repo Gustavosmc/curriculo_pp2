@@ -1,5 +1,8 @@
 ActiveAdmin.register AdminUser do
+  permit_params :email, :password, :password_confirmation
   actions :all, except: [:destroy]
+  
+  
 
   index do
     selectable_column
@@ -12,8 +15,6 @@ ActiveAdmin.register AdminUser do
   end
 
   filter :email
-  # filter :current_sign_in_at
-  # filter :sign_in_count
   filter :created_at
 
   form do |f|

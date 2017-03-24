@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317235301) do
+ActiveRecord::Schema.define(version: 20170323222024) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -95,11 +95,10 @@ ActiveRecord::Schema.define(version: 20170317235301) do
   end
 
   create_table "curriculos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "observacao",    limit: 65535
+    t.text     "observacao", limit: 65535
     t.integer  "usuario_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "endereco_comp"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["usuario_id"], name: "index_curriculos_on_usuario_id", using: :btree
   end
 
@@ -189,7 +188,6 @@ ActiveRecord::Schema.define(version: 20170317235301) do
     t.datetime "updated_at",               null: false
     t.string   "descricao"
     t.float    "salario",    limit: 24
-    t.integer  "n_vagas"
     t.index ["setor_id"], name: "index_vagas_on_setor_id", using: :btree
   end
 

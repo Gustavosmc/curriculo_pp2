@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Gerar PDFs
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # ActiveAdmin, area administrativa
 gem 'activeadmin', github: 'activeadmin'
 
@@ -23,8 +27,6 @@ gem 'jquery-inputmask-rails'
 
 # Will_paginate para filtros e paginação
 gem 'will_paginate', '~> 3.1.0'
-
-# Kaminari para paginação (Usada para o ActiveAdmin para evitar conflito com will_paginate)
 
 # Paperclip para upload de imagens
 gem "paperclip", "~> 5.0.0"

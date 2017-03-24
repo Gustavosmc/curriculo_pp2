@@ -62,7 +62,7 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
   end
   
   def after_update_path_for(resource)
-      edit_usuario_registration_path(resource)
+      curriculo_path(resource.curriculo)
   end
   
  
