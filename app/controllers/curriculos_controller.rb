@@ -18,7 +18,8 @@ class CurriculosController < ApplicationController
       format.pdf do
          render pdf: "curriculo",
             template: "curriculos/show.pdf.erb",
-            encoding: 'utf8'
+            encoding: 'utf8',
+            lowquality: false
       end
     end
   end

@@ -4,7 +4,7 @@ class CreateVagas < ActiveRecord::Migration[5.0]
       t.datetime :datahorac
       t.text :requisitos
       t.integer :especial
-      t.integer :status
+      t.integer :status, :default => 1
       t.references :setor, foreign_key: true
 
       t.timestamps

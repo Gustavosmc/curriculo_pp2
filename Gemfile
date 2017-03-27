@@ -25,7 +25,10 @@ gem 'country_state_select', :git => 'https://github.com/arvindvyas/Country-State
 gem 'jquery-inputmask-rails'
 
 
-# Will_paginate para filtros e paginação
+# Ransack para filtros, busca no banco
+gem 'ransack'
+
+# Will_paginate para paginação
 gem 'will_paginate', '~> 3.1.0'
 
 # Paperclip para upload de imagens

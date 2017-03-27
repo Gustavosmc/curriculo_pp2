@@ -43,7 +43,7 @@
                        <%= f.input :naturalidade, required: true, collection: CountryStateSelect.collect_states('br'), class:"selectpicker" %>
                   </div>
                   <div class="w3-col s3 w3-margin-right  w3-mobile">
-                       <%= f.input :estadocivil, collection: Usuario.estadocivis.keys.to_a, required: true , class:"selectpicker" %>
+                       <%= f.input :estadocivil, collection: Usuario.estadocivis.keys.to_a,  class:"selectpicker" %>
                   </div>
              </div>
              

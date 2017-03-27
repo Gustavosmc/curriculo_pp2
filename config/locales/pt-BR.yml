@@ -3,6 +3,8 @@
     powered_by: Copyright Islug
   activerecord:
     attributes:
+      curriculo:
+        created_at: Criado em
       usuario:
         current_password: Senha atual
         email: Email
@@ -53,6 +55,8 @@
         created_at: Criado Em
         current_sign_in_at: Entrada atual em
         sign_in_count: Contador de Entradas
+      contratacao:
+        created_at: Data Contratação
     models:
       contratacao: Contratação
       comment: Comentário

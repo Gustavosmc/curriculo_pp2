@@ -7,7 +7,8 @@
         <tr>
           <th>Descrição da Vaga</th>
           <th>Setor</th>
-          <th>Status</th>
+          <th>Status Vaga</th>
+          <th>Situação</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -18,6 +19,7 @@
             <td><%= candidato.vaga.descricao %></td>
             <td><%= candidato.vaga.setor.descricao %></td>
             <td><%= candidato.vaga.status %></td>
+            <td><%= candidato.status %></td>
             <td><%= button_to 'Mais Detalhes', candidato.vaga, class: 'btn btn-info btn-xs', method: :get, 
                                 form: {style: 'display:inline-block;'}%>
                  <%= button_to 'Cancelar', candidato, class: 'btn btn-danger btn-xs', method: :delete, 

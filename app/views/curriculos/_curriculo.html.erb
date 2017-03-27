@@ -43,12 +43,14 @@
                 </div>
             </div>
             
-            <div class="endereco w3-col w3-margin-left">
-                <strong class="w3-left w3-margin-left">Estado Civil: </strong>
-                <div class="w3-left w3-margin-left">
-                    <%= @estadocivil %>
-                </div>
-            </div>
+            <% if not @estadocivil.eql? "" %>
+              <div class="endereco w3-col w3-margin-left">
+                  <strong class="w3-left w3-margin-left">Estado Civil: </strong>
+                  <div class="w3-left w3-margin-left">
+                      <%= @estadocivil %>
+                  </div>
+              </div>
+            <%end%>
             
             <h5 class="w3-left w3-margin-left s12">Contato</h5>
             <div class="endereco w3-col w3-margin-left">

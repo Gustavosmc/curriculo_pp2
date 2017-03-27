@@ -1,7 +1,7 @@
 
  <%= wicked_pdf_stylesheet_link_tag "application" -%>
 
-<div class=" w3-margin w3-center w3-card-4 w3-row w3-mobile " id="curriculo-vitae" > 
+<div class="w3-center w3-card w3-row w3-mobile " id="curriculo-vitae" > 
 
     <div class="curriculo-cabecalho w3-center w3-blue">
         <h2>Curriculum Vitae</h2>
@@ -45,13 +45,15 @@
                     <%= @usuario.sexo %>
                 </div>
             </div>
-            
+          
+          <% if not @estadocivil.eql? "" %>
             <div class="endereco w3-col w3-margin-left">
                 <strong class="w3-left w3-margin-left">Estado Civil: </strong>
                 <div class="w3-left w3-margin-left">
                     <%= @estadocivil %>
                 </div>
             </div>
+          <%end%>
             
             <h5 class="w3-left w3-margin-left s12">Contato</h5>
             <div class="endereco w3-col w3-margin-left">

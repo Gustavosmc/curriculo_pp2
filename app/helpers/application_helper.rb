@@ -1,6 +1,5 @@
 module ApplicationHelper
   
-  
 
     
   # Renderiza um cabeçalho padrão para as views

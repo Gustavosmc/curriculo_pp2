@@ -1,4 +1,5 @@
 ActiveAdmin.register AdminUser do
+  menu label: "Administradores"
   permit_params :email, :password, :password_confirmation
   actions :all, except: [:destroy]
   

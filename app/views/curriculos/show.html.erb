@@ -14,10 +14,6 @@
       </div>
       
       <div class="form-group">
-          <%= button_to "Voltar", root_path, method: :get, class:"btn btn-danger" %>
-      </div>
-      
-      <div class="form-group">
           <%= link_to "Gerar PDF", curriculo_path(@curriculo, format: :pdf), method: :get, target: :_blank, 
               class:"btn btn-success" %>
      </div>

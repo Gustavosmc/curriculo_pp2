@@ -1,5 +1,12 @@
 module CurriculosHelper
     
+  def age(dob)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+
+    
+    
     def mes_portugues(mes)
         {1=> 'Janeiro', 2=> 'Fevereiro', 3=> "Março", 4=> "Abril", 5=> "Maio", 6=> "Junho",
         7=> 'Julho', 8=> "Agosto", 9=> 'Setembro', 10=> "Outubro", 11=> "Novembro", 12=> "Dezembro"}[mes]

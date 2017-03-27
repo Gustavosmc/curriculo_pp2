@@ -5,7 +5,8 @@ class CandidatosController < ApplicationController
   # GET /candidatos
   # GET /candidatos.json
   def index
-    @candidatos = Candidato.where(usuario_id: current_usuario.id).where(status: 1)
+    @candidatos = Candidato.where(usuario_id: current_usuario.id).
+                  where("status = ? or status = ?", 1, 2)
   end
 
   # GET /candidatos/1
@@ -18,9 +19,9 @@ class CandidatosController < ApplicationController
     @vaga = Vaga.find_by_id(params[:vaga])
     loc_candidato = Candidato.where(vaga_id: @vaga.id).where(usuario_id: current_usuario.id).first
     if loc_candidato
-      if loc_candidato.status == "AGUARDANDO"
+      if loc_candidato.status == "AGUARDANDO" or loc_candidato.status == "ELIMINADO"
         redirect_to candidatos_url, notice: 'Você já está cadastrado nesta vaga'
-      else
+      elsif loc_candidato.status != "ELIMINADO"
         loc_candidato.update(status: 1)
         redirect_to candidatos_url, notice: 'Você recandidatou a esta vaga, sua objeção desta vaga continua a mesma,
               clique em editar para altera-la'
@@ -36,7 +37,10 @@ class CandidatosController < ApplicationController
     @candidato.usuario_id = current_usuario.id
     @candidato.status = 1
      respond_to do |format|
-      if @candidato.save
+      if Candidato.exists? usuario_id: @candidato.usuario_id, vaga_id: @candidato.vaga_id
+        format.html { redirect_to candidatos_url, notice: 'Candidato já existe' }
+        format.json { render :show, status: :created, location: @candidato }
+      elsif @candidato.save
         format.html { redirect_to candidatos_url, notice: 'Registro na vaga realizado com sucesso' }
         format.json { render :show, status: :created, location: @candidato }
       else
@@ -67,10 +71,15 @@ class CandidatosController < ApplicationController
   # DELETE /candidatos/1
   # DELETE /candidatos/1.json
   def destroy
-    @candidato.status = 0
+    
     respond_to do |format|
-      if @candidato.save
-        format.html { redirect_to candidatos_url, notice: 'Registro cancelado com sucesso' }
+      if @candidato.status == "ELIMINADO"
+        format.html { redirect_to candidatos_url, notice: 'Você já não foi desclassificado desta vaga' }
+      elsif
+        @candidato.status = 0
+        if @candidato.save
+          format.html { redirect_to candidatos_url, notice: 'Registro cancelado com sucesso' }
+        end
       end
     end
   end

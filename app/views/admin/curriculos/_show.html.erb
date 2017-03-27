@@ -1,4 +1,6 @@
-<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag 'w3', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag 'curriculo', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag 'bootstrap_and_overrides', media: 'all', 'data-turbolinks-track' => true %>
 
 <%= render 'curriculos/curriculo' %>
 
@@ -11,7 +13,7 @@
      </div>
      
      <div class="form-group">
-          <%= link_to "Voltar", admin_curriculos_path, method: :get, class:"btn btn-danger" %>
+          <%= link_to "Voltar", :back , class:"btn btn-danger" %>
      </div>
      
 </div>  

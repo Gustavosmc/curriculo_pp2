@@ -182,10 +182,10 @@ ActiveRecord::Schema.define(version: 20170323222024) do
   create_table "vagas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "requisitos", limit: 65535
     t.integer  "especial"
-    t.integer  "status"
+    t.integer  "status",                   default: 1
     t.integer  "setor_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "descricao"
     t.float    "salario",    limit: 24
     t.index ["setor_id"], name: "index_vagas_on_setor_id", using: :btree

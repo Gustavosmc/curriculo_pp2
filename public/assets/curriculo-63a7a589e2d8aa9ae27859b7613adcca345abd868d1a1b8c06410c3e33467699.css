@@ -1,0 +1,8 @@
+/* line 1, /home/ubuntu/workspace/app_curriculo/app/assets/stylesheets/curriculo.css.scss */
+div p {
+  margin-left: 24px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 6px;
+  padding: 3px;
+}
