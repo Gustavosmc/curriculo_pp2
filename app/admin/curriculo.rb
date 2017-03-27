@@ -53,7 +53,7 @@ ActiveAdmin.register Curriculo do
  
   filter :usuario_nome, as: :string, label: "Nome"
   filter :usuario_sexo, as: :select, collection: Usuario.sexos, label: "Sexo"
-  filter :idiomas, as: :select, collection: Idioma.where(status: 1).map{|i| ["#{i.descricao}", "#{i.descricao}", i.id]}
+  filter :idioma_curriculos, as: :select, collection: Idioma.where(status: 1).map{|i| ["#{i.descricao}", i.id]}
   filter :titulos_descricao, as: :string, label: "Títulos(formação superior, cursos, etc)"
   filter :titulos_grau, as: :select, collection: Titulo.graus, label: "Grau de Estudo"
   filter :cargos_descricao, as: :string, label: "Experiência Profissional"
