@@ -3,6 +3,7 @@ ActiveAdmin.register Candidato do
   actions :all, except: [ :new, :create, :destroy, :edit, :update]
   
  controller do
+   
   def scoped_collection
     super.where(vaga_id: params[:vaga])
   end

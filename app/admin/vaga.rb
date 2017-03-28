@@ -1,5 +1,5 @@
 ActiveAdmin.register Vaga do
-  permit_params :descricao, :especial, :requisitos, :status, :setor_id
+  permit_params :descricao, :especial, :requisitos, :status, :setor_id, :salario
   actions :all, except: [:destroy]
   
   controller do
