@@ -5,9 +5,13 @@ ActiveAdmin.register Candidato do
  controller do
    
   def scoped_collection
-    super.where(vaga_id: params[:vaga])
+    if params.has_key? :vaga
+     super.where(vaga_id: params[:vaga])
+    else
+      super
+    end
   end
- 
+  
    
  end
  
