@@ -28,7 +28,7 @@ ActiveAdmin.register Vaga do
       end
       
       actions defaults: false, method: :get do |vaga|
-        link_to "Ver #{Candidato.count(conditions: "vaga_id = 1")} Candidatos", admin_candidatos_path(vaga: vaga.id)
+        link_to "Ver #{Candidato.count("vaga_id = #{vaga.id} and status = 1")} Candidatos", admin_candidatos_path(vaga: vaga.id)
       end
    end
    
