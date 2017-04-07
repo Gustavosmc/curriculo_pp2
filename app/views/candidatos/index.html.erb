@@ -7,15 +7,15 @@
         <tr>
           <th>Descrição da Vaga</th>
           <th>Setor</th>
-          <th>Status Vaga</th>
-          <th>Situação</th>
-          <th>Ações</th>
+          <th>Status da Vaga</th>
+          <th>Minha Situação</th>
+       
         </tr>
       </thead>
     
       <tbody>
         <% @candidatos.each do |candidato| %>
-          <tr>
+          <tr <%= " class= w3-text-#{sel_cor(candidato)}" %> >
             <td><%= candidato.vaga.descricao %></td>
             <td><%= candidato.vaga.setor.descricao %></td>
             <td><%= candidato.vaga.status %></td>

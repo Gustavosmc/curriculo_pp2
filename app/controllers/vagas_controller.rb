@@ -5,7 +5,10 @@ class VagasController < ApplicationController
   # GET /vagas.json
   def index
     @q = Vaga.ransack(params[:q])
-    @vagas = @q.result.includes(:setor).paginate(per_page: 10, page: params[:page])
+    @vagas = @q.result.includes(:setor)
+    @vagas = @vagas.where(status: 1) # Status Vaga ABERTA
+    @vagas = @vagas.paginate(per_page: 10, page: params[:page])
+    
   end
 
   # GET /vagas/1

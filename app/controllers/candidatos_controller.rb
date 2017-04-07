@@ -5,8 +5,7 @@ class CandidatosController < ApplicationController
   # GET /candidatos
   # GET /candidatos.json
   def index
-    @candidatos = Candidato.where(usuario_id: current_usuario.id).
-                  where("status = ? or status = ?", 1, 2)
+    @candidatos = Candidato.where(usuario_id: current_usuario.id).order(:status)
   end
 
   # GET /candidatos/1
@@ -74,7 +73,7 @@ class CandidatosController < ApplicationController
     
     respond_to do |format|
       if @candidato.status == "ELIMINADO"
-        format.html { redirect_to candidatos_url, notice: 'Você já não foi desclassificado desta vaga' }
+        format.html { redirect_to candidatos_url, notice: 'Você já foi desclassificado desta vaga' }
       elsif
         @candidato.status = 0
         if @candidato.save
