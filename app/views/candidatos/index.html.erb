@@ -15,18 +15,20 @@
     
       <tbody>
         <% @candidatos.each do |candidato| %>
-          <tr <%= " class= w3-text-#{sel_cor(candidato)}" %> >
-            <td><%= candidato.vaga.descricao %></td>
+          <% color = sel_cor(candidato) %>
+          <tr <%= " class= w3-text-#{color}" %> >
+            <td><div align="left"><%= candidato.vaga.descricao %></div></td>
             <td><%= candidato.vaga.setor.descricao %></td>
             <td><%= candidato.vaga.status %></td>
             <td><%= candidato.status %></td>
-            <td><%= button_to 'Mais Detalhes', candidato.vaga, class: 'btn btn-info btn-xs', method: :get, 
+            <td>
+             <%= button_to 'Mais Detalhes', candidato.vaga, class: 'btn btn-info btn-xs', method: :get, 
                                 form: {style: 'display:inline-block;'}%>
-                 <%= button_to 'Cancelar', candidato, class: 'btn btn-danger btn-xs', method: :delete, 
+             <% bt = "true" if not (color.eql? "green") %>
+             <%= button_to 'Cancelar', candidato, class: 'btn btn-danger btn-xs', method: :delete, disabled: bt,
                                 form: {style: 'display:inline-block;'},  data: { confirm: 'Deseja realmente desistir desta vaga?' } %>
-                <%= button_to 'Editar', edit_candidato_path(candidato), class: 'btn btn-warning btn-xs', method: :get, 
-                                form: {style: 'display:inline-block;'} %>                
-                
+             <%= button_to 'Editar', edit_candidato_path(candidato), class: 'btn btn-warning btn-xs', method: :get, 
+                                form: {style: 'display:inline-block;'}, disabled: bt %>                
             </td>
           </tr>
         <% end %>

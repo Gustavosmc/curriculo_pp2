@@ -22,7 +22,7 @@ module CandidatosHelper
         "red"
       when 3
         "blue"
-      end
+    end
   end
   
 end

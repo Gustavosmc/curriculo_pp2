@@ -11,9 +11,9 @@
      </li>
     <% if usuario_signed_in? %>
         <li class="w3-dropdown-hover">
-              <%= link_to(' Meus Dados', '#' , class: "fa fa-id-card-o") %>
+              <%= link_to(' Meus Dados', '' , class: "fa fa-id-card-o") %>
               <div class="w3-dropdown-content w3-border ">
-                <%= link_to(' Pessoais', edit_usuario_registration_path(current_usuario), class: "	fa fa-user") %>
+                <%= link_to(' Pessoais', edit_usuario_registration_path(current_usuario), class: "fa fa-user") %>
                 <%= link_to(' Curriculo', curriculo_path(current_usuario.curriculo), class: "fa fa-id-card") %>
              </div>
         </li>
@@ -29,7 +29,7 @@
     
     <% else %>
         <li class="w3-dropdown-hover">
-          <%= link_to(' Acesso', '#' , class: "fa fa-unlock") %>
+          <%= link_to(' Acesso', '' , class: "fa fa-unlock") %>
           <div class="w3-dropdown-content w3-border ">
                 <%= link_to(' Entrar', new_usuario_session_path , class: "fa fa-sign-in")  %>
                 <%= link_to(' Registrar', new_usuario_registration_path, class: "fa fa-user-o")  %>

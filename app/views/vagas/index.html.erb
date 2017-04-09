@@ -14,16 +14,19 @@
           <%= f.label :descricao_cont%>
           <%= f.search_field :descricao_cont%>
         </div>
-        <div class="w3-col s3 w3-margin-botton w3-mobile ">
-          <%= f.label "Setor" %>
-          <%= f.collection_select :setor_id_eq, Setor.where(status: 1), :id, :descricao, include_blank: true %>
-        </div>
+        
         <div class="w3-col s2 w3-margin-botton w3-mobile">
           <%= f.label :especial %>
           <%= f.select :especial_eq, Vaga.especiais,
             include_blank: true
             %>
         </div>
+        
+        <div class="w3-col s3 w3-margin-botton w3-mobile ">
+          <%= f.label "Setor" %>
+          <%= f.collection_select :setor_id_eq, Setor.where(status: 1), :id, :descricao, include_blank: true %>
+        </div>
+       
        
         <div class="w3-col s2  w3-margin-top w3-margin-botton w3-right w3-mobile">
           <%= f.submit class: "w3-btn w3-green" %>
