@@ -1,4 +1,3 @@
-//= require sweetalert2
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
@@ -8,6 +7,8 @@
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
 //= require cocoon
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require_tree .
 //= require_self
 
@@ -36,7 +37,7 @@ $.rails.allowAction = function(link){
 //User click confirm button
 $.rails.confirmed = function(link){
   link.data("confirm", null);
-  Turbolinks.visit(link.attr('href'))
+  link.trigger("click.rails");
 }
 
 //Display the confirmation dialog
@@ -46,8 +47,8 @@ $.rails.showConfirmationDialog = function(link){
     title: message,
     type: 'warning',
     confirmButtonText: 'Sim',
-    cancelButtonText: "Cancelar",
-    confirmButtonColor: '#0A6EFF',
+    cancelButtonText: 'Cancelar',
+    confirmButtonColor: '#2acbb3',
     showCancelButton: true
   }).then(function(e){
     $.rails.confirmed(link);

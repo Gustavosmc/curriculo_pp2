@@ -24,9 +24,9 @@ gem 'country_state_select', :git => 'https://github.com/arvindvyas/Country-State
 # Mascaras de campos html
 gem 'jquery-inputmask-rails'
 
-# Alert personalizados
-gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
-
+# Alertas personalizados
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
 
 # Ransack para filtros, busca no banco
 gem 'ransack'
