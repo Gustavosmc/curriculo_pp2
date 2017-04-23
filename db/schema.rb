@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170323222024) do
     t.integer  "usuario_id"
     t.boolean  "contratado"
     t.text     "observacao", limit: 65535
-    t.integer  "status"
+    t.integer  "status",     limit: 1
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["usuario_id"], name: "index_candidatos_on_usuario_id", using: :btree
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20170323222024) do
   end
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "descricao"
+    t.string   "descricao",       limit: 80
     t.date     "inicio"
-    t.integer  "desenvolvimento"
+    t.integer  "desenvolvimento", limit: 1
     t.date     "fim"
     t.decimal  "ultimo_sal",                    precision: 8, scale: 2
     t.text     "detalhes",        limit: 65535
@@ -83,12 +83,12 @@ ActiveRecord::Schema.define(version: 20170323222024) do
   end
 
   create_table "contratacoes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "status"
+    t.integer  "status",     limit: 1
     t.integer  "usuario_id"
     t.integer  "vaga_id"
     t.integer  "setor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.index ["setor_id"], name: "index_contratacoes_on_setor_id", using: :btree
     t.index ["usuario_id"], name: "index_contratacoes_on_usuario_id", using: :btree
     t.index ["vaga_id"], name: "index_contratacoes_on_vaga_id", using: :btree
@@ -103,39 +103,39 @@ ActiveRecord::Schema.define(version: 20170323222024) do
   end
 
   create_table "idioma_curriculos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "le"
-    t.integer  "fala"
-    t.integer  "escreve"
-    t.integer  "status"
+    t.integer  "le",           limit: 1
+    t.integer  "fala",         limit: 1
+    t.integer  "escreve",      limit: 1
+    t.integer  "status",       limit: 1
     t.integer  "curriculo_id"
     t.integer  "idioma_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["curriculo_id"], name: "index_idioma_curriculos_on_curriculo_id", using: :btree
     t.index ["idioma_id"], name: "index_idioma_curriculos_on_idioma_id", using: :btree
   end
 
   create_table "idiomas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "descricao"
-    t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "descricao",  limit: 80
+    t.integer  "status",     limit: 1
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "setores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "descricao"
-    t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "descricao",  limit: 80
+    t.integer  "status",     limit: 1
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "titulos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "descricao"
-    t.string   "entidade"
-    t.integer  "ano"
-    t.integer  "desenvolvimento"
-    t.integer  "grau"
-    t.integer  "status"
+    t.string   "descricao",       limit: 80
+    t.string   "entidade",        limit: 80
+    t.integer  "ano",             limit: 2
+    t.integer  "desenvolvimento", limit: 1
+    t.integer  "grau",            limit: 1
+    t.integer  "status",          limit: 1
     t.integer  "curriculo_id"
     t.integer  "usuario_id"
     t.datetime "created_at",                    null: false
@@ -149,14 +149,14 @@ ActiveRecord::Schema.define(version: 20170323222024) do
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "resumo",                 limit: 65535
-    t.string   "nome"
-    t.string   "cpf"
+    t.string   "nome",                   limit: 160
+    t.string   "cpf",                    limit: 15
     t.date     "datanascimento"
-    t.integer  "sexo"
-    t.integer  "estadocivil"
-    t.string   "telefone"
+    t.integer  "sexo",                   limit: 1
+    t.integer  "estadocivil",            limit: 1
+    t.string   "telefone",               limit: 15
     t.string   "naturalidade"
-    t.integer  "status"
+    t.integer  "status",                 limit: 1
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.string   "email",                                default: "", null: false
@@ -181,7 +181,7 @@ ActiveRecord::Schema.define(version: 20170323222024) do
 
   create_table "vagas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "requisitos", limit: 65535
-    t.integer  "especial"
+    t.integer  "especial",   limit: 1
     t.integer  "status",                   default: 1
     t.integer  "setor_id"
     t.datetime "created_at",                           null: false

@@ -9,7 +9,7 @@ ActiveAdmin.register Vaga do
   end
 
   
-  index do
+  index  :download_links => false do
       selectable_column
       id_column
       column :descricao

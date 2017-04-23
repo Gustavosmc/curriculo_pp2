@@ -29,7 +29,7 @@ ActiveAdmin.register Curriculo do
 
  
   
-  index do
+  index :download_links => false  do
     selectable_column
     id_column
     column "Usuário" do |curriculo|

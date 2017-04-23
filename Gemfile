@@ -9,6 +9,9 @@ end
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+# Validar cpf
+gem 'validates_cpf_cnpj'
+
 # ActiveAdmin, area administrativa
 gem 'activeadmin', github: 'activeadmin'
 

@@ -2,7 +2,7 @@ ActiveAdmin.register Contratacao do
   menu label: "Contratações"
   actions :all, except: [:destroy, :create, :new, :update, :edit]
   
-  index do
+  index :download_links => false  do
     id_column
     column "Usuário" do |contratacao|
       contratacao.usuario.nome 

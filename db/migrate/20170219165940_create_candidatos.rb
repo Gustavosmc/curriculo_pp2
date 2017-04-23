@@ -5,7 +5,7 @@ class CreateCandidatos < ActiveRecord::Migration[5.0]
       t.references :usuario, foreign_key: true
       t.boolean :contratado
       t.text :observacao
-      t.integer :status
+      t.integer :status, limit: 1
 
       t.timestamps
     end

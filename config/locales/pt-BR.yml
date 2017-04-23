@@ -1,6 +1,6 @@
 'pt-BR':
   active_admin:
-    powered_by: Copyright Islug
+    powered_by: Copyright GSA Sistemas
   activerecord:
     attributes:
       curriculo:

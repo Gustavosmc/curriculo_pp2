@@ -5,10 +5,10 @@ class Usuario < ApplicationRecord
   validates :nome, presence: true, length: { minimum: 3, maximum: 160 }
   validates :telefone, presence: true, length: { maximum: 15 }
   validates :cpf, presence: true, length: { maximum: 15 } , uniqueness: true
+  validates_cpf :cpf
   validates :naturalidade, presence: true
   validates :endereco, presence: true, length: { maximum: 160 }
   
-
 
   has_one :curriculo
   has_many :candidatos
@@ -19,7 +19,6 @@ class Usuario < ApplicationRecord
   validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
   
   validates_attachment :foto, content_type: { content_type: ["image/jpeg", "image/png"]}
-  
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,11 +1,11 @@
 class CreateCargos < ActiveRecord::Migration[5.0]
   def change
     create_table :cargos do |t|
-      t.string :descricao
-      t.integer :experiencia
+      t.string :descricao, limit: 80
+      t.integer :experiencia, limit: 1
       t.boolean :pretendido
       t.date :inicio
-      t.integer :desenvolvimento
+      t.integer :desenvolvimento, limit: 1
       t.date :fim
       t.float :ultimo_sal
       t.float :pretencao_sal

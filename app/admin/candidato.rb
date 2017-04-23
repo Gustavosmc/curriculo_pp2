@@ -6,13 +6,13 @@ ActiveAdmin.register Candidato do
     respond_to do |format|
         @candidato = Candidato.find_by_id(params[:id])
         if Candidato.status[@candidato.status] == 0
-          format.html { redirect_to admin_candidatos_url, notice: 'Candidato já está cancelado' }
+          format.html { redirect_to admin_candidatos_url, notice: 'Candidato já cancelou' }
         elsif Candidato.status[@candidato.status] == 2
           format.html { redirect_to admin_candidatos_url, notice: 'Candidato já está desclassificado' }
         else
           @candidato.status = 2
           if @candidato.save
-            format.html { redirect_to admin_candidatos_url, notice: 'Candidato desclassificado' }
+            format.html { redirect_to admin_candidatos_path(vaga: @candidato.vaga_id), notice: 'Candidato desclassificado' }
           end
         end
     end
@@ -54,7 +54,7 @@ ActiveAdmin.register Candidato do
  
  
  
- index do
+ index :download_links => false  do
    selectable_column
       id_column
       column :usuario do |c|

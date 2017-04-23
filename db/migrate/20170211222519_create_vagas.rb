@@ -3,7 +3,7 @@ class CreateVagas < ActiveRecord::Migration[5.0]
     create_table :vagas do |t|
       t.datetime :datahorac
       t.text :requisitos
-      t.integer :especial
+      t.integer :especial, limit: 1
       t.integer :status, :default => 1
       t.references :setor, foreign_key: true
 
