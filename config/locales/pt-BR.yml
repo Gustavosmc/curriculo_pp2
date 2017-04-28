@@ -59,7 +59,7 @@
         created_at: Data Contratação
     models:
       contratacao: Contratação
-      comment: Comentário
+      comment: Comentários
       admin_user: Administrador
       titulo: Título
       idioma: Idioma
