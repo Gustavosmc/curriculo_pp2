@@ -6,15 +6,37 @@
  *= require sweetalert2
  */
 
+header {
+  
+}
+
+.cabecalho{
+  background-color: #003e00;
+  font-family: 'PT Sans', sans-serif;
+}
 
 
 body {
     padding-top: 50px;
     position: relative;
     height: 100%;
-    
 }
 
+
+footer{
+  background-color: #003e00;
+  color: white;
+  ffont-family: 'PT Sans', sans-serif;
+}
+
+
+.submenu{
+   display: inline-block;
+}
+
+.cabecalho-descricao{
+   font-family: 'PT Sans', sans-serif;
+}
 
 pre {
       tab-size: 8;
@@ -48,6 +70,8 @@ pre {
 }
 
 
+
+
 .descricao{
     font-size: 24px;
     margin-bottom: 20px;
@@ -71,7 +95,5 @@ pre {
     
 }
 
-footer{
-    font: 'PT Sans Bold';
-}
+
 

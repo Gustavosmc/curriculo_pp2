@@ -37,6 +37,7 @@
       vaga:
         created_at: Criada em
         updated_at: Atualizada em
+        descricao: Descrição
       idioma_curriculo:
         le: Leitura
         escreve: Escrita

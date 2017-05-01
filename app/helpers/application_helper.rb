@@ -4,7 +4,7 @@ module ApplicationHelper
     
   # Renderiza um cabeçalho padrão para as views
   def description_w3(description)
-     header = "<header class='w3-container w3-green w3-margin w3-center w3-round-xlarge w3-wide'>" 
+     header = "<header class='cabecalho-descricao w3-container w3-green w3-margin w3-center'>" 
      header << "<h3>#{description}</h3></header>"
      header.html_safe
   end
