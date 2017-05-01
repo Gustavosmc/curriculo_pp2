@@ -8,7 +8,7 @@ function habilitarFimCargo(){
     desenSelect  = $("#cargos").find('.nested-fields').find('.fields').find(".desenvolvimento0").
                 find(".desenvolvimento1").find("select");
        
-          
+       
     function enable_disable(element){
         if(element.value == "SIM"){
             inputFim[element.inicio].disabled = true;

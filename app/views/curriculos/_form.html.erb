@@ -2,6 +2,31 @@
     <%= simple_form_for(@curriculo) do |f_curriculo| %>
         <%= f_curriculo.error_notification %>
         
+        <!--<div class="w3-row w3-margin w3-card-8">-->
+          
+        <!--    <div class="curriculo-cabecalho w3-center w3-blue">-->
+        <!--            Informações Diversas-->
+        <!--    </div>-->
+          
+        <!--     <div class="w3-row w3-margin">-->
+        <!--         <div class="w3-col s12 w3-mobile">-->
+        <!--            <%= f_curriculo.input :parente_associado %>-->
+        <!--        </div>-->
+        <!--     </div>-->
+             
+        <!--      <div class="parentesco w3-row w3-margin">-->
+        <!--         <div class="w3-col s12 w3-mobile">-->
+        <!--            <%= f_curriculo.input :parentesco, collection: Curriculo.parentescos.keys.to_a %>-->
+        <!--        </div>-->
+        <!--     </div>-->
+        <!--   </div>-->
+        <!-- </div>-->
+         
+        
+       
+         
+        
+         
         <div class="w3-row w3-margin w3-card-8">
           
              <div class="curriculo-cabecalho w3-center w3-blue">
@@ -14,7 +39,7 @@
                   
                <% end %>
                 <div class='links'>
-                    <%= link_to_add_association '+ Cargo', f_curriculo, :cargos, class:"w3-badge w3-green w3-margin"%>
+                    <%= link_to_add_association '+ Cargo', f_curriculo, :cargos, class:"w3-button w3-green w3-margin"%>
                 </div>
              </div>
             
@@ -51,7 +76,7 @@
               
            <% end %>
             <div class='links'>
-                <%= link_to_add_association '+ Título', f_curriculo, :titulos, class:"w3-badge w3-green w3-margin"%>
+                <%= link_to_add_association '+ Título', f_curriculo, :titulos, class:"w3-button w3-green w3-margin"%>
             </div>
          </div>
         
@@ -70,7 +95,7 @@
               
            <% end %>
             <div class='links'>
-                <%= link_to_add_association '+ Idioma', f_curriculo, :idioma_curriculos, class:"w3-badge w3-green w3-margin"%>
+                <%= link_to_add_association '+ Idioma', f_curriculo, :idioma_curriculos, class:"w3-button w3-green w3-margin"%>
             </div>
          </div>
         
@@ -88,6 +113,8 @@
                     <%= f_curriculo.input :observacao, label: false,  error: true, input_html: {style: "min-height: 150px;"} %>
                 </div>
              </div>
+             
+            
             
         </div>
          

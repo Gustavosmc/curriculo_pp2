@@ -1,13 +1,13 @@
 <div class="cabecalho w3-left">
   <ul class="nav navbar-nav text-uppercase w3-xlarge ">
-     <li class="w3-margin-right">
-       <%= image_tag("capul_logo.png", height: '64', width: '128') %>
+     <li class="w3-margin-right ">
+       <%= image_tag("capul_logo.png", height: '64', width: '145') %>
      </li>
      <li>
        <%= link_to " Home", root_path, class:"fa fa-home" %>
      </li>
      <li>
-        <%= link_to(' Vagas Ofertadas', vagas_path, class: "fa fa-search")  %>
+        <%= link_to(' Ver Vagas', vagas_path, class: "fa fa-search")  %>
      </li>
     <% if usuario_signed_in? %>
         <li class="w3-dropdown-hover">
@@ -23,7 +23,7 @@
           
         </li>
         
-        <li>
+        <li >
           <%= link_to(' Sair', destroy_usuario_session_path, :method=>'delete', class: "fa fa-sign-out") %>        
         </li>
     

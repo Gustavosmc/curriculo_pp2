@@ -16,7 +16,7 @@
   </head>
   <body>
    <header role="banner" class="cabecalho navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
+      <div class="container ">
         <div class="cabecalho navbar-header">
           <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
         </div>
@@ -38,19 +38,22 @@
     <% if controller.controller_name == "home" %>
       <footer class="w3-row w3-margin-top">
         
-        <div class="w3-display-container"></div>
-          <div class="w3-col w3-margin-left w3-left-align w3-xlarge s3 w3-mobile">
-              <h4>CAPUL - Cooperativa Agropecuária Unaí Ltda</h4>
-              <h5>Rua Prefeito João Costa, nº 1375</h5>
-              <h5>Bairro Planalto - Unaí - MG</h5>
-              <h5>CEP: 38610-000</h5>
-          </div>
+        <div class="w3-row w3-col s3 w3-margin-right">
           
-          <div class="w3-margin-bottom w3-margin-left w3-display-bottomleft">
-             <%= image_tag("capul_logo.png", height: '64', width: '128') %>
-          </div>
-        </div>
+            <div class="w3-col s12 w3-margin-bottom w3-margin-left ">
+               <%= image_tag("capul_logo.png", height: '64', width: '145') %>
+            </div>
         
+        
+            <div class="w3-col s12 w3-margin-left w3-left-align w3-xlarge w3-mobile ">
+                <h4>CAPUL - Cooperativa Agropecuária Unaí Ltda</h4>
+                <h5>Rua Prefeito João Costa, nº 1375</h5>
+                <h5>Bairro Planalto - Unaí - MG</h5>
+                <h5>CEP: 38610-000</h5>
+                <h5>Site: <%= link_to "capul.coop.br", "http://capul.coop.br/"%></h5>
+            </div>
+       </div>
+       
         <div class="w3-col s7 ">
       	  <div class="row-fluid">
               <div class="span8">
@@ -58,7 +61,8 @@
           	</div>
           </div>
         </div>
-      
+        
+        
       </footer>
     <% end %>
 

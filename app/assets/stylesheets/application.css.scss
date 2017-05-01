@@ -7,6 +7,7 @@
  */
 
 header {
+  font-family: 'PT Sans', sans-serif;
   
 }
 
@@ -17,7 +18,7 @@ header {
 
 
 body {
-    padding-top: 50px;
+    padding-top: 120px;
     position: relative;
     height: 100%;
 }
@@ -27,6 +28,12 @@ footer{
   background-color: #003e00;
   color: white;
   ffont-family: 'PT Sans', sans-serif;
+}
+
+.conteudo{
+    position: relative;
+    height: auto;
+     
 }
 
 
@@ -88,12 +95,7 @@ pre {
 }
 
 
-.conteudo{
-    position: relative;
-    height: auto;
-    min-height: 480px;    
-    
-}
+
 
 
 
