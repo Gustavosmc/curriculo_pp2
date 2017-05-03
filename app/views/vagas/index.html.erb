@@ -16,16 +16,14 @@
         </div>
         
         
-        <div class="w3-col s3 w3-margin-botton w3-mobile ">
+        <div class="w3-col s3 w3-margin-botton w3-mobile">
           <%= f.label "Setor" %>
           <%= f.collection_select :setor_id_eq, Setor.where(status: 1), :id, :descricao, include_blank: true %>
         </div>
         
         <div class="w3-col s2 w3-margin-botton w3-mobile">
           <%= f.label "Necessidades especiais" %>
-          <%= f.select :especial_eq, Vaga.especiais,
-            include_blank: true
-            %>
+          <%= f.select :especial_eq, Vaga.especiais, include_blank: true%>
         </div>
        
        
