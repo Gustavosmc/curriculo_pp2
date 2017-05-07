@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: pedido-anotado
+  api_key: '479689386497691'
+  api_secret: 9O4dvO5-PPX7N45fTTRTIZO6s2g
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: pedido-anotado
+  api_key: '479689386497691'
+  api_secret: 9O4dvO5-PPX7N45fTTRTIZO6s2g
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: pedido-anotado
+  api_key: '479689386497691'
+  api_secret: 9O4dvO5-PPX7N45fTTRTIZO6s2g
+  enhance_image_tag: true
+  static_image_support: false

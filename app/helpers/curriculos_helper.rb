@@ -11,6 +11,18 @@ module CurriculosHelper
     7=> 'Julho', 8=> "Agosto", 9=> 'Setembro', 10=> "Outubro", 11=> "Novembro", 12=> "Dezembro"}[mes]
   end
   
+  def gerar_parentesco(curriculo)
+    if curriculo.parente_associado
+       if Curriculo.parentescos[curriculo.parentesco] == 0
+         "É filho de associado da Capul"
+       elsif Curriculo.parentescos[curriculo.parentesco] == 1
+         "É parente de associado da Capul"
+       end
+    else
+      "Não possui parente associado da capul"
+    end
+    
+  end
 
   def gerar_descricao_cargo(cargo)
     return if not cargo.valid?

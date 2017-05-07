@@ -2,25 +2,27 @@
     <%= simple_form_for(@curriculo) do |f_curriculo| %>
         <%= f_curriculo.error_notification %>
         
-        <!--<div class="w3-row w3-margin w3-card-8">-->
+        <div class="w3-row w3-margin w3-card-8">
           
-        <!--    <div class="curriculo-cabecalho w3-center w3-blue">-->
-        <!--            Informações Diversas-->
-        <!--    </div>-->
+            <div class="curriculo-cabecalho w3-center w3-blue">
+                    Informações Diversas
+            </div>
           
-        <!--     <div class="w3-row w3-margin">-->
-        <!--         <div class="w3-col s12 w3-mobile">-->
-        <!--            <%= f_curriculo.input :parente_associado %>-->
-        <!--        </div>-->
-        <!--     </div>-->
+             <div class="w3-row w3-margin">
+                 <div class="w3-col s12 w3-mobile">
+                    <%= f_curriculo.input :parente_associado, input_html: {class: "w3-check"}, 
+                        label: "Possui parente associado na Capul?" %>
+                </div>
+             </div>
              
-        <!--      <div class="parentesco w3-row w3-margin">-->
-        <!--         <div class="w3-col s12 w3-mobile">-->
-        <!--            <%= f_curriculo.input :parentesco, collection: Curriculo.parentescos.keys.to_a %>-->
-        <!--        </div>-->
-        <!--     </div>-->
-        <!--   </div>-->
-        <!-- </div>-->
+              <div class="parentesco w3-row w3-margin">
+                 <div class="w3-col s12 w3-mobile">
+                    <%= f_curriculo.input :parentesco, collection: Curriculo.parentescos.keys.to_a, 
+                        input_html: {class: "w3-select"}, include_blank: false, include_hidden: false %> 
+                </div>
+             </div>
+           </div>
+        
          
         
        
@@ -118,9 +120,6 @@
             
         </div>
          
-          
-        
-      
        <div class="w3-row w3-margin">
         <%= f_curriculo.button :submit, class:"btn btn-warning" %>
        </div>

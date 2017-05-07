@@ -28,6 +28,7 @@ class CurriculosController < ApplicationController
   # GET /curriculos/1/edit
   def edit
     @idiomas = Idioma.where(status: 1)
+   
   end
 
   # # POST /curriculos

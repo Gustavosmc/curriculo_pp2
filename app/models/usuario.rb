@@ -20,6 +20,9 @@ class Usuario < ApplicationRecord
   
   validates_attachment :foto, content_type: { content_type: ["image/jpeg", "image/png"]}
   
+  validates_attachment_size :foto, :less_than => 2.megabytes, 
+                          :unless => Proc.new {|m| m[:image].nil?}
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -17,7 +17,7 @@ class Curriculo < ApplicationRecord
   
   
   
-  enum parentesco: {SEM: 0, PARENTE: 1, FILHO: 2}
+  enum parentesco: {FILHO: 0, PARENTE: 1, OUTROS: 2}
   
 
  

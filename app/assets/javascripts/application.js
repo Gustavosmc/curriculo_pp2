@@ -2,13 +2,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require jquery.inputmask
-//= require jquery.inputmask.extensions
-//= require jquery.inputmask.numeric.extensions
-//= require jquery.inputmask.date.extensions
 //= require cocoon
 //= require sweetalert2
 //= require sweet-alert2-rails
+//= require vanilla-masker
 //= require_tree .
 //= require_self
 
@@ -25,7 +22,7 @@ $(document).ready(function() {
 });
 
 
-//Override the default confirm dialog by rails
+// Sobrescrita metodo de confirmação de ação <data>
 $.rails.allowAction = function(link){
   if (link.data("confirm") == undefined){
     return true;

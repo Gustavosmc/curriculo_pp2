@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Upload de imagens para cloudinary usando paperclip
+# gem 'paperclip-cloudinary'
+
 # Gerar PDFs
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
@@ -25,7 +28,7 @@ gem "cocoon"
 gem 'country_state_select', :git => 'https://github.com/arvindvyas/Country-State-Select.git'
 
 # Mascaras de campos html
-gem 'jquery-inputmask-rails'
+gem 'rails-assets-vanilla-masker', source: 'https://rails-assets.org'
 
 # Alertas personalizados
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'

@@ -24,7 +24,7 @@ ActiveAdmin.register Vaga do
       
       actions defaults: true, method: :put do |vaga|
         link_to 'Cancelar', cancelar_admin_vaga_path(vaga),
-          data: { confirm: 'Atenção! Isso cancelará a vaga permanentemente. Deseja realmente cancelar? '}
+          data: {confirm: 'Atenção! Isso cancelará a vaga permanentemente. Deseja realmente cancelar?'}
       end
       
       actions defaults: false, method: :get do |vaga|

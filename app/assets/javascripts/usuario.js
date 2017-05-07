@@ -1,9 +1,14 @@
 $(document).ready(function(){
-   $('#usuario_cpf').inputmask('999.999.999-99');
-   $('#usuario_telefone').inputmask('(99) [9]-9999-9999');
+   //applies default mask pattern
+  VMasker(document.querySelector("#usuario_cpf")).maskPattern("999.999.999-99");
+  VMasker(document.querySelector("#usuario_telefone")).maskPattern("(99) 99999-9999");            
+
+  //sets keyup's event to check which mask pattern will be used
+
+  
+  
+   
+   
 });
 
-$(".edit_usuario").submit(function() {
-  $("#usuario_cpf").unmask('999.999.999-99');
-  $('#usuario_telefone').unmask('(99) [9]-9999-9999');
-});
+ 

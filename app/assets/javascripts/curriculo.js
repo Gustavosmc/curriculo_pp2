@@ -1,5 +1,6 @@
 
 
+
 function habilitarFimCargo(){
     /// Habilita ou desabilita a entrada no campo fim do form Cargo
     inputFim = $("#cargos").find('.nested-fields').find('.fields').find(".fim0").
@@ -8,7 +9,7 @@ function habilitarFimCargo(){
     desenSelect  = $("#cargos").find('.nested-fields').find('.fields').find(".desenvolvimento0").
                 find(".desenvolvimento1").find("select");
        
-       
+          
     function enable_disable(element){
         if(element.value == "SIM"){
             inputFim[element.inicio].disabled = true;
@@ -116,12 +117,35 @@ function mensagensNotifyCurriculo(){
 }
 
 
+
+function habilitarParentesco(){
+  checkboxParente = $("#curriculo_parente_associado");
+  inputParentesco = $("#curriculo_parentesco");
+  function parenteChecked(){
+    if(checkboxParente.is(":checked")){
+      inputParentesco.prop('disabled', false);
+    }else{
+      inputParentesco.prop('disabled', 'disabled');
+      inputParentesco.val(null);
+    }
+  }
+  
+  parenteChecked();
+  
+  checkboxParente.change(function(){
+    parenteChecked();
+  });
+}
+
+
+
 $(document).ready(function() {
     
     habilitarFimCargo();
     addMascarasDinheiroCargo();
     addMascarasDinheiroCargosPretendidos();
     mensagensNotifyCurriculo();
+    habilitarParentesco();
     
     
 });
