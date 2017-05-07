@@ -12,16 +12,17 @@ module CurriculosHelper
   end
   
   def gerar_parentesco(curriculo)
+    ret = ""
     if curriculo.parente_associado
        if Curriculo.parentescos[curriculo.parentesco] == 0
-         "É filho de associado da Capul"
+         ret = "<strong>É filho de associado da Capul</strong>"
        elsif Curriculo.parentescos[curriculo.parentesco] == 1
-         "É parente de associado da Capul"
+         ret ="</strong>É parente de associado da Capul</strong>"
        end
     else
-      "Não possui parente associado da capul"
+      ret ="</strong>Não possui parente associado da capul</strong>"
     end
-    
+    ret.html_safe
   end
 
   def gerar_descricao_cargo(cargo)
