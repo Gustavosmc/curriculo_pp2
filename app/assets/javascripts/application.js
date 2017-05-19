@@ -7,10 +7,11 @@
 //= require sweet-alert2-rails
 //= require vanilla-masker
 //= require curriculo
-//= require home
 //= require usuario
-//= require jquery.maskMoney.min.js
+//= require home
 //= require notify
+//= require jquery.maskMoney.min.js
+//= require cable
 //= require_self
 
 
@@ -22,6 +23,10 @@ $(document).ready(function() {
         $(sel).toggleClass('in');
         $(sel2).toggleClass('out');
     });
+    
+    VMasker(document.querySelector("#usuario_cpf")).maskPattern("999.999.999-99");
+    VMasker(document.querySelector("#usuario_telefone")).maskPattern("(99) 99999-9999");            
+
 });
 
 
