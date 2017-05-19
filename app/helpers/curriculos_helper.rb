@@ -17,10 +17,10 @@ module CurriculosHelper
        if Curriculo.parentescos[curriculo.parentesco] == 0
          ret = "<strong>É filho de associado da Capul</strong>"
        elsif Curriculo.parentescos[curriculo.parentesco] == 1
-         ret ="</strong>É parente de associado da Capul</strong>"
+         ret ="<strong>É parente de associado da Capul</strong>"
        end
     else
-      ret ="</strong>Não possui parente associado da capul</strong>"
+      ret ="<strong>Não possui parente associado da capul</strong>"
     end
     ret.html_safe
   end
