@@ -44,7 +44,6 @@ gem 'will_paginate', '~> 3.1.0'
 gem "paperclip", "~> 5.0.0"
 
 # Twiter bootstrap
-gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
 

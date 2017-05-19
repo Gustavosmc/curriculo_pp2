@@ -1,14 +1,17 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require turbolinks
+//= require bootstrap
 //= require cocoon
 //= require sweetalert2
 //= require sweet-alert2-rails
 //= require vanilla-masker
-//= require_tree .
+//= require curriculo
+//= require home
+//= require usuario
+//= require jquery.maskMoney.min.js
+//= require notify
 //= require_self
-
 
 
 $(document).ready(function() {
