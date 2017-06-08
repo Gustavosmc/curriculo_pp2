@@ -4,35 +4,65 @@
        <%= image_tag("capul_logo.png", height: '64', width: '145') %>
      </li>
      <li>
-       <%= link_to " Home", root_path, class:"fa fa-home" %>
+       <%= link_to root_path do %>
+         <i class="fa fa-home"></i>
+        <span>HOME</span>
+       <%end%>
      </li>
      <li>
-        <%= link_to(' Ver Vagas', vagas_path, class: "fa fa-search")  %>
+       <%= link_to vagas_path do %>
+          <i class= "fa fa-search"></i>
+          VER VAGAS
+        <%end%>
      </li>
     <% if usuario_signed_in? %>
         <li class="w3-dropdown-hover">
-              <%= link_to(' Meus Dados', '' , class: "fa fa-id-card-o") %>
-              <div class="w3-dropdown-content w3-border ">
-                <%= link_to(' Pessoais', edit_usuario_registration_path(current_usuario), class: "submenu fa fa-user") %>
-                <%= link_to(' Curriculo', curriculo_path(current_usuario.curriculo), class: "submenu fa fa-id-card") %>
+              <%= link_to '' do %>
+                <i class="fa fa-id-card-o"></i>
+                MEUS DADOS
+              <%end%>
+              <div class="w3-dropdown-content w3-border w3-card-4 " style="min-width: 200px;">
+                 <%= link_to edit_usuario_registration_path(current_usuario) do %>
+                 <i class= "submenu fa fa-user"></i>
+                 PESSOAIS
+              <%end%>
+              <%= link_to curriculo_path(current_usuario.curriculo) do %>
+                 <i class= "submenu fa fa-id-card"></i>
+                 CURRICULO
+              <%end%>
+               
              </div>
         </li>
   
         <li>
-          <%= link_to(' Concorrendo', candidatos_path, class: "fa fa-hourglass-2") %>
-          
+          <%= link_to(candidatos_path) do %>
+            <i class="fa fa-hourglass-2"></i>
+            CONCORRENDO
+          <%end%>
         </li>
         
         <li >
-          <%= link_to(' Sair', destroy_usuario_session_path, :method=>'delete', class: "fa fa-sign-out") %>        
+          <%= link_to destroy_usuario_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>
+            SAIR
+          <%end%>
         </li>
     
     <% else %>
         <li class="w3-dropdown-hover">
-          <%= link_to(' Acesso', '' , class: " fa fa-unlock") %>
-          <div class="w3-dropdown-content w3-border ">
-                <%= link_to(' Entrar', new_usuario_session_path , class: "submenu fa fa-sign-in")  %>
-                <%= link_to(' Registrar', new_usuario_registration_path, class: "submenu fa fa-user-o")  %>
+          <%= link_to '' do %>
+              <i class="fa fa-unlock"></i>
+              ACESSO  
+          <%end%>
+          <div class="w3-dropdown-content w3-border w3-bar-block " style="min-width: 200px;">
+              <%= link_to new_usuario_session_path, class: "w3-bar-item" do %>
+                  <i class="fa fa-sign-in"></i>
+                  ENTRAR
+              <%end%>
+              <%= link_to new_usuario_registration_path, class: "w3-bar-item" do %>
+                   <span class="fa fa-user-o" > REGISTRAR</span>
+              <%end%>
+              
          </div>
       </li>
     <% end %>
