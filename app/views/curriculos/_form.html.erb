@@ -11,13 +11,13 @@
              <div class="w3-row w3-margin">
                  <div class="w3-col s12 w3-mobile">
                     <%= f_curriculo.input :parente_associado, input_html: {class: "w3-check"}, 
-                        label: "Possui parente associado na Capul?" %>
+                        label: "Possui parente associado nesta Empresa?" %>
                 </div>
              </div>
              
               <div class="parentesco w3-row w3-margin">
                  <div class="w3-col s12 w3-mobile">
-                    <%= f_curriculo.input :parentesco, collection: Curriculo.parentescos.keys.to_a, 
+                    <%= f_curriculo.input :parentesco, collection: Curriculo.parentescos.keys.to_a, label: "Seu Grau de Parentesco",
                         input_html: {class: "w3-select"}, include_blank: false, include_hidden: false %> 
                 </div>
              </div>

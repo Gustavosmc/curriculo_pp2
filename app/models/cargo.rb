@@ -3,9 +3,7 @@ class Cargo < ApplicationRecord
   validates :desenvolvimento, presence: true
   validates :entidade, presence: true, length: { maximum: 80 }
   validates :inicio, presence: true
-  
- 
- 
+
   attr_accessor :ultimo_sal
   
   belongs_to :curriculo
