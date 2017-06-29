@@ -7,18 +7,18 @@
         <%= f.error_notification %>
     
               <div class="w3-row">
-                 <div class="w3-col s7   w3-mobile">
-                    <%= f.input :foto %>
+                 <div class="w3-col s7 w3-mobile">
+                    <%= f.input :foto, onchange: "previewFile()" %>
                 </div>
-                <div class="w3-col s3  w3-right  w3-mobile">
-                    <%= image_tag('user.ico', height: '128', width: '128') %> 
+                <div class="w3-col s3 w3-right w3-mobile">
+                    <%= image_tag('user.ico', height: '128', width: '128', id: 'foto') %> 
                 </div>
              </div>
              
              </br>
             
             <div class="w3-row">
-                <div class="w3-col s12  w3-margin-right w3-mobile">
+                <div class="w3-col s12 w3-margin-right w3-mobile">
                     <%= f.input :nome, required: true, autofocus: true %>                  
                 </div>
             </div>

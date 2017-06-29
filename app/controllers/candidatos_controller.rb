@@ -66,7 +66,7 @@ class CandidatosController < ApplicationController
     end
   end
   
-  # Modificado não deleta apenas muda o status do candidato
+  # Modificado, não deleta apenas muda o status do candidato
   # DELETE /candidatos/1
   # DELETE /candidatos/1.json
   def destroy

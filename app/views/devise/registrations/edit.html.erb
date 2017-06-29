@@ -13,13 +13,13 @@
           
            <div class="w3-row">
                  <div class="w3-col s7   w3-mobile">
-                    <%= f.input :foto %>
+                    <%= f.input :foto%>
                 </div>
                 <div class="w3-col s3  w3-right  w3-mobile">
                     <% if not f.object.foto.url(:thumb).eql? "/images/default_image.png"%>
-                        <%= image_tag(f.object.foto.url(:thumb), height: '158', width: '118') %>
+                        <%= image_tag(f.object.foto.url(:thumb), height: '158', width: '118', id: 'foto') %>
                     <%else%>
-                        <%= image_tag('user', height: '128', width: '128') %> 
+                        <%= image_tag('user', height: '128', width: '128', id: 'foto') %> 
                     <%end%>
                 </div>
             </div>
